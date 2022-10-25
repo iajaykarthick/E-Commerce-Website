@@ -12,3 +12,19 @@ To install django,
 ```
 conda install -c ananconda django
 ```
+
+
+Testing api
+Below APIs created so far:
+
+#### Get book data based on book id 
+
+http://localhost:8000/api/book-detail/2/
+
+#### Get all data from book table
+
+http://localhost:8000/api/book-list
+
+#### Call sample stored procedure
+
+http://localhost:8000/api/test
