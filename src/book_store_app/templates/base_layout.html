@@ -1,0 +1,42 @@
+{% comment %} {% load staticfiles %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Article List</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    {% comment %} <link rel="stylesheet" href="{% static 'style.css'%}"> {% endcomment %}
+  </head>
+  <body>
+    {% comment %} <header class="wrapper">
+      <h1> <a href="{% url 'home' %}"> <img src="{% static 'article_logo.png'%}" alt="" width="42" height="42"> </a> </h1>
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+          <li>
+            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <li>
+            <a href="{% url 'articles:create' %}" class="hightlight">New Article</a>
+          </li>
+          {% else %}
+            <li>
+              <a href="{% url 'accounts:signup' %}">Sign Up</a>
+            </li>
+            <li>
+              <a href="{% url 'accounts:login' %}">Login</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header> {% endcomment %}
+    <div class="wrapper">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+  </body>
+</html>

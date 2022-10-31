@@ -1,0 +1,16 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+  <h2>Book List</h2>
+  <br>
+  <div class="books">
+    {% for book in books %}
+      <div class="book">
+        <p> Test </p>
+      {% comment %} <h2> <a href="{% url 'books:detail' slug=book.slug %}">{{ book.title }}</a> </h2> {% endcomment %}
+        <p>{{ book.name }}</p>
+        <p>{{ book.price }}</p>
+        {% comment %} <p class="author">added by {{ book.author.username }} </p> {% endcomment %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
