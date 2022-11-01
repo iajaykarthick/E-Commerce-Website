@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE'  : 'django.db.backends.mysql',  
         'NAME'    : 'BOOK_STORE',                  
         'USER'    : 'devuser',                     
-        'PASSWORD': 'secure#password',              
+        'PASSWORD': 'idmp',              
         'HOST'    : 'localhost',                
         'PORT'    : '3306',
     }
