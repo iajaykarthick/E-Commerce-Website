@@ -1,0 +1,83 @@
+Genre_id,genres
+1,History
+2,Classics
+3,Nonfiction
+4,Reference
+5,Religion
+6,Fiction
+7,Canada
+8,Historical Fiction
+9,Literary Fiction
+10,Historical
+11,Novels
+12,War
+13,Science
+14,Contemporary
+15,Essays
+16,Mystery
+17,Legal Thriller
+18,Thriller
+19,Crime
+20,Mystery Thriller
+21,Suspense
+22,Adventure
+23,Short Stories
+24,Literature
+25,American
+26,20th Century
+27,School
+28,Humor
+29,Womens
+30,Inspirational
+31,Self Help
+32,Adult
+33,Magical Realism
+34,Comedy
+35,Politics
+36,Middle Grade
+37,Childrens
+38,Fantasy
+39,Adult Fiction
+40,Audiobook
+41,Science Fiction
+42,Christian
+43,Christian Fiction
+44,Science Fiction Fantasy
+45,Travel
+46,Romance
+47,Historical Romance
+48,Spirituality
+49,Young Adult
+50,Biography
+51,Animals
+52,Cozy Mystery
+53,Southern
+54,Chick Lit
+55,Womens Fiction
+56,Horror
+57,Detective
+58,Romantic Suspense
+59,Ireland
+60,Psychology
+61,Realistic Fiction
+62,Philosophy
+63,19th Century
+64,Contemporary Romance
+65,Action
+66,Memoir
+67,Biography Memoir
+68,Autobiography
+69,Coming Of Age
+70,High Fantasy
+71,British Literature
+72,LGBT
+73,Drama
+74,Paranormal
+75,Magic
+76,Family
+77,Feminism
+78,Book Club
+79,Urban Fantasy
+80,Poetry
+81,Queer
+82,France

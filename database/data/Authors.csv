@@ -1,0 +1,683 @@
+Author ID,Author Name,Author Email,Street Address,zipcode
+1,Mark P. O. Morford,MarkMorford@gmail.com,6939 Ridgeway Road,28749
+2,Richard Bruce Wright,RichardBruceWright@gmail.com,487 Hansons Street,27973
+3,Carlo D'Este,Carlo@gmail.com,2694 Dovetail Pass,72479
+4,Gina Bari Kolata,GinaBariKolata@gmail.com,9711 Clarendon Lane,67053
+5,E. J. W. Barber,Barber@gmail.com,8 Hanover Park,59702
+6,Amy Tan,AmyTan@gmail.com,8945 Rusk Court,70142
+7,Robert Cowley,RobertCowley@gmail.com,50820 North Trail,49833
+8,Scott Turow,ScottTurow@gmail.com,193 Union Lane,32805
+9,David Cordingly,DavidCordingly@gmail.com,9104 Blackbird Pass,18372
+10,Ann Beattie,AnnBeattie@gmail.com,3 Gina Lane,38658
+11,David Adams Richards,DavidAdamsRichards@gmail.com,65 Farragut Plaza,52556
+12,Adam Lebor,AdamLebor@gmail.com,9057 Troy Street,72222
+13,Sheila Heti,SheilaHeti@gmail.com,1680 Moose Terrace,22922
+14,Jack Canfield,JackCanfield@gmail.com,95878 Scott Trail,17057
+15,Loren D. Estleman,LorenEstleman@gmail.com,0850 Jenna Center,74570
+16,Robert Hendrickson,RobertHendrickson@gmail.com,3 Buell Place,28613
+17,John Grisham,JohnGrisham@gmail.com,08327 Hovde Lane,10095
+18,Toni Morrison,ToniMorrison@gmail.com,002 Bunting Street,75977
+19,The Onion,TheOnion@gmail.com,2292 Larry Center,29616
+20,Celia Brooks Brown,CeliaBrooksBrown@gmail.com,795 Meadow Ridge Street,79414
+21,Robynn Clairday,RobynnClairday@gmail.com,899 Hudson Park,35142
+22,Kathleen Duey,KathleenDuey@gmail.com,1554 Fuller Drive,68454
+23,Rich Shapero,RichShapero@gmail.com,76 Cambridge Center,02150
+24,Michael Crichton,MichaelCrichton@gmail.com,695 Spenser Court,39038
+25,MICHAEL CRICHTON,MICHAELCRICHTON@gmail.com,76197 Roth Crossing,77989
+26,C.S. Lewis,Lewis@gmail.com,8533 Crescent Oaks Point,01984
+27,ARTHUR PHILLIPS,ARTHURPHILLIPS@gmail.com,0977 Vera Trail,31197
+28,Stephan Jaramillo,StephanJaramillo@gmail.com,70163 Welch Plaza,04357
+29,Mordecai Richler,MordecaiRichler@gmail.com,84 Daystar Park,15963
+30,Charlotte Link,CharlotteLink@gmail.com,0950 Myrtle Road,03848
+31,Mark Salzman,MarkSalzman@gmail.com,7 Fisk Crossing,77342
+32,Harper Lee,HarperLee@gmail.com,6384 Dahle Circle,35674
+33,LAURA HILLENBRAND,LAURAHILLENBRAND@gmail.com,6 Pawling Drive,34284
+34,Barbara Kingsolver,BarbaraKingsolver@gmail.com,1957 Del Sol Court,38574
+35,Jo Dereske,Dereske@gmail.com,54 Paget Circle,02180
+36,Jane Austen,JaneAusten@gmail.com,895 2nd Trail,44817
+37,Anne Rivers Siddons,AnneRiversSiddons@gmail.com,2006 Fremont Avenue,48767
+38,Dean R. Koontz,DeanKoontz@gmail.com,24779 Leroy Lane,12202
+39,Mary Higgins Clark,MaryHigginsClark@gmail.com,38719 Fulton Pass,42326
+40,Dean Koontz,DeanKoontz@gmail.com,2995 Green Ridge Avenue,48242
+41,Patricia Cornwell,PatriciaCornwell@gmail.com,79599 Rieder Junction,05091
+42,J.D. Robb,Robb@gmail.com,6440 Messerschmidt Pass,93042
+43,Maeve Binchy,MaeveBinchy@gmail.com,016 Gulseth Trail,83261
+44,Laura J. Mixon,LauraMixon@gmail.com,4253 Jenna Way,32097
+45,Tim Lahaye,TimLahaye@gmail.com,3 Holy Cross Way,22649
+46,JOHN GRISHAM,JOHNGRISHAM@gmail.com,670 Sherman Parkway,56651
+47,M.D. Bernie S. Siegel,BernieSiegel@gmail.com,0 Larry Avenue,15215
+48,Robert Penn Warren,RobertPennWarren@gmail.com,64720 Truax Point,13864
+49,Mark Helprin,MarkHelprin@gmail.com,0596 Sunbrook Crossing,67012
+50,O. Carol Simonton Md,CarolSimonton@gmail.com,37049 Columbus Plaza,66066
+51,Larry McMurtry,LarryMcMurtry@gmail.com,4 Ridge Oak Avenue,08225
+52,SUZANNE FISHER STAPLES,SUZANNEFISHERSTAPLES@gmail.com,2191 Novick Circle,70537
+53,Carl Sagan,CarlSagan@gmail.com,9 Rowland Drive,76036
+54,Aleksandr Zinoviev,AleksandrZinoviev@gmail.com,6 Bowman Crossing,16022
+55,Anne Tyler,AnneTyler@gmail.com,255 Holy Cross Point,11232
+56,Joseph Conrad,JosephConrad@gmail.com,61633 Dunning Park,77486
+57,Deepak Chopra,DeepakChopra@gmail.com,8 Victoria Point,47001
+58,Thomas Hardy,ThomasHardy@gmail.com,6 Moland Alley,39120
+59,Valerie Frankel,ValerieFrankel@gmail.com,2073 Del Sol Park,28810
+60,Benjamin Hoff,BenjaminHoff@gmail.com,43599 Lakewood Gardens Plaza,32163
+61,Niccolo Machiavelli,NiccoloMachiavelli@gmail.com,027 Pleasure Pass,29147
+62,H. Jackson Brown,JacksonBrown@gmail.com,331 Spohn Junction,07936
+63,Robert A. Heinlein,RobertHeinlein@gmail.com,8151 Golf View Drive,85011
+64,PHILIP PULLMAN,PHILIPPULLMAN@gmail.com,01184 Sundown Circle,90067
+65,Anna Sewell,AnnaSewell@gmail.com,45773 Roth Terrace,83323
+66,P.J. O'Rourke,@gmail.com,23360 Hayes Parkway,92372
+67,Mike Gayle,MikeGayle@gmail.com,05 Kenwood Parkway,34044
+68,Stel Pavlou,StelPavlou@gmail.com,435 Charing Cross Park,20251
+69,Sarah Payne Stuart,SarahPayneStuart@gmail.com,811 Sachtjen Place,45503
+70,Dan Quayle,DanQuayle@gmail.com,38 Aberg Junction,87053
+71,DAVID FRUM,DAVIDFRUM@gmail.com,45327 Hallows Point,25149
+72,Louis Lamour,LouisLamour@gmail.com,34398 Kennedy Plaza,14851
+73,J.D. Salinger,Salinger@gmail.com,1447 Manley Trail,80236
+74,J. R. R. Tolkien,Tolkien@gmail.com,361 Mcguire Point,41065
+75,John Berendt,JohnBerendt@gmail.com,70 Memorial Crossing,97758
+76,Jennifer Crusie,JenniferCrusie@gmail.com,0 Bellgrove Trail,73119
+77,Jane Heller,JaneHeller@gmail.com,555 Kennedy Alley,33075
+78,Michael Rips,MichaelRips@gmail.com,25369 Oak Valley Court,20549
+79,Simon Mawer,SimonMawer@gmail.com,8 Westerfield Hill,20797
+80,William Abrahams,WilliamAbrahams@gmail.com,2 Walton Street,63102
+81,Robert T. Kiyosaki,RobertKiyosaki@gmail.com,27772 Cardinal Alley,95226
+82,Ken Follett,KenFollett@gmail.com,395 Northridge Drive,54554
+83,John F. Love,JohnLove@gmail.com,755 Miller Park,50069
+84,Robert G. Allen,RobertAllen@gmail.com,64676 Dovetail Pass,92679
+85,LOUIS DE BERNIERES,LOUISBERNIERES@gmail.com,01683 Lillian Terrace,65726
+86,Pam Proctor,PamProctor@gmail.com,6752 Waxwing Pass,46327
+87,Mitch Albom,MitchAlbom@gmail.com,1 High Crossing Hill,98526
+88,Irene Gonzalez Frei,IreneGonzalezFrei@gmail.com,696 Cascade Place,52342
+89,Michael Jan Friedman,MichaelJanFriedman@gmail.com,61971 Heffernan Street,10557
+90,Glendon Swarthout,GlendonSwarthout@gmail.com,812 Hanover Avenue,19013
+91,Neal Barrett Jr.,NealBarrett@gmail.com,70 Emmet Trail,42303
+92,David Morrell,DavidMorrell@gmail.com,1499 Hintze Trail,33028
+93,Sandra Brown,SandraBrown@gmail.com,258 Forest Run Road,99150
+94,James Patterson,JamesPatterson@gmail.com,7102 Elka Crossing,81210
+95,Stuart Woods,StuartWoods@gmail.com,04819 Corscot Parkway,83238
+96,IRIS JOHANSEN,IRISJOHANSEN@gmail.com,752 Coolidge Drive,93286
+97,Dan Brown,DanBrown@gmail.com,19 Macpherson Pass,99918
+98,Anita Shreve,AnitaShreve@gmail.com,8 Riverside Junction,65439
+99,Ann Rule,AnnRule@gmail.com,2 Garrison Drive,75386
+100,LEWIS GRIZZARD,LEWISGRIZZARD@gmail.com,21692 Harbort Plaza,18820
+101,Paul Theroux,PaulTheroux@gmail.com,3 Carioca Center,59911
+102,Lewis Grizzard,LewisGrizzard@gmail.com,3332 Cody Court,39325
+103,Charles Hickey,CharlesHickey@gmail.com,093 Kenwood Avenue,91943
+104,Stephen King,StephenKing@gmail.com,6546 Merrick Alley,63160
+105,Ben Mezrich,BenMezrich@gmail.com,6 Daystar Crossing,48051
+106,Bill Hand,BillHand@gmail.com,7054 Pond Trail,49130
+107,Tom Clancy,TomClancy@gmail.com,67 Gerald Lane,23917
+108,DANA REEVE,DANAREEVE@gmail.com,44 Russell Pass,47615
+109,Roy,Roy@gmail.com,6 Elka Hill,66227
+110,Barbara Metzger,BarbaraMetzger@gmail.com,3 Sherman Street,93619
+111,Gabriel Garcia Marquez,GabrielGarciaMarquez@gmail.com,56857 Blaine Point,84151
+112,Rebecca Wells,RebeccaWells@gmail.com,36 Hoard Park,71047
+113,Tony Hillerman,TonyHillerman@gmail.com,01132 Harper Park,85262
+114,Robert James Waller,RobertJamesWaller@gmail.com,47276 Melrose Court,01364
+115,Rachel Harris,RachelHarris@gmail.com,16216 Service Alley,19732
+116,IAN MCEWAN,IANMCEWAN@gmail.com,79668 Clove Terrace,92128
+117,Michael Lewis,MichaelLewis@gmail.com,8555 Pawling Trail,73456
+118,Richard Zimler,RichardZimler@gmail.com,32 Mcguire Circle,63624
+119,Norman Jetmundsen,NormanJetmundsen@gmail.com,7 Meadow Valley Junction,43203
+120,Lorenzo Carcaterra,LorenzoCarcaterra@gmail.com,7 Granby Pass,98177
+121,Anne Frasier,AnneFrasier@gmail.com,282 Eastlawn Point,46210
+122,Kay Hooper,KayHooper@gmail.com,455 Katie Point,17002
+123,Soren Kierkegaard,SorenKierkegaard@gmail.com,9 Ilene Pass,32507
+124,Jose Ortega Y Gaset,JoseOrtegaGaset@gmail.com,808 Reindahl Drive,32862
+125,Daphne Du Maurier,DaphneMaurier@gmail.com,8091 Hoard Junction,29564
+126,Nathaniel Hawthorne,NathanielHawthorne@gmail.com,87080 Swallow Alley,90087
+127,Laura Wolf,LauraWolf@gmail.com,20501 Mesta Alley,04673
+128,LOIS DUNCAN,LOISDUNCAN@gmail.com,6542 Crest Line Trail,36783
+129,Susan Grant,SusanGrant@gmail.com,1077 Mosinee Park,92887
+130,Barbara Vine,BarbaraVine@gmail.com,6 Sullivan Point,93306
+131,Shirley Rousseau Murphy,ShirleyRousseauMurphy@gmail.com,484 Fairfield Way,43525
+132,Jane Lindskold,JaneLindskold@gmail.com,882 Eagan Circle,10970
+133,Betty Smith,BettySmith@gmail.com,8272 Kings Place,71431
+134,Cybill Shepherd,CybillShepherd@gmail.com,548 Fair Oaks Place,72734
+135,Stewart O'Nan,Stewart@gmail.com,91544 Fairfield Point,35620
+136,David Baldacci,DavidBaldacci@gmail.com,38 Meadow Vale Park,44430
+137,Douglas Adams,DouglasAdams@gmail.com,26147 Steensland Junction,30101
+138,Mary Lawson,MaryLawson@gmail.com,28 Becker Terrace,45030
+139,Willa Cather,WillaCather@gmail.com,86530 Melrose Center,64436
+140,Olivia Goldsmith,OliviaGoldsmith@gmail.com,83 Oakridge Crossing,91503
+141,Helen Fielding,HelenFielding@gmail.com,2 Raven Plaza,14767
+142,Franklin W. Dixon,FranklinDixon@gmail.com,7 John Wall Parkway,36426
+143,Lilian Jackson Braun,LilianJacksonBraun@gmail.com,1 Warbler Drive,14853
+144,Holly Virden,HollyVirden@gmail.com,1 Bartillon Junction,64109
+145,H. Norman Wright,NormanWright@gmail.com,995 Red Cloud Point,03054
+146,Piers Anthony,PiersAnthony@gmail.com,230 Leroy Plaza,12143
+147,RAY BRADBURY,RAYBRADBURY@gmail.com,71 Johnson Way,78799
+148,Schiller,Schiller@gmail.com,03 Ridgeview Court,37737
+149,Ray Bradbury,RayBradbury@gmail.com,0570 Sheridan Avenue,33161
+150,Raymond Chandler,RaymondChandler@gmail.com,6 Buena Vista Terrace,81415
+151,Paolo Coelho,PaoloCoelho@gmail.com,13174 Sommers Way,60108
+152,Fay Weldon,FayWeldon@gmail.com,4 Evergreen Point,47932
+153,Arabella Weir,ArabellaWeir@gmail.com,01854 Moulton Trail,55964
+154,Kiana Davenport,KianaDavenport@gmail.com,8891 Killdeer Alley,87939
+155,Sue Townsend,SueTownsend@gmail.com,26484 Sycamore Alley,68771
+156,Renan Demirkan,RenanDemirkan@gmail.com,327 Kipling Way,53062
+157,Michael Moore,MichaelMoore@gmail.com,3807 Sutteridge Terrace,55024
+158,Jonathan Franzen,JonathanFranzen@gmail.com,66779 Pierstorff Circle,01604
+159,Jerome D. Salinger,JeromeSalinger@gmail.com,482 3rd Trail,15020
+160,James Joyce,JamesJoyce@gmail.com,3323 Brickson Park Court,76623
+161,Joanna Trollope,JoannaTrollope@gmail.com,70940 Crowley Center,94520
+162,Milan Kundera,MilanKundera@gmail.com,850 Ilene Point,59641
+163,Arundhati Roy,ArundhatiRoy@gmail.com,9 Kensington Park,50076
+164,Richard North Patterson,RichardNorthPatterson@gmail.com,2 Eliot Plaza,30124
+165,Lorna Landvik,LornaLandvik@gmail.com,5 Southridge Junction,37361
+166,Arthur Golden,ArthurGolden@gmail.com,2356 Superior Junction,10546
+167,KENT HARUF,KENTHARUF@gmail.com,624 Forest Run Terrace,99357
+168,Patricia D. Cornwell,PatriciaCornwell@gmail.com,8 Portage Center,08083
+169,Kathleen E. Woodiwiss,KathleenWoodiwiss@gmail.com,2 Meadow Ridge Circle,62977
+170,Belva Plain,BelvaPlain@gmail.com,45900 Northfield Place,56218
+171,MARK HADDON,MARKHADDON@gmail.com,4 Myrtle Terrace,45724
+172,ANN BRASHARES,ANNBRASHARES@gmail.com,1908 Buena Vista Trail,05753
+173,Erich Segal,ErichSegal@gmail.com,3 Londonderry Hill,35769
+174,Elizabeth Adler,ElizabethAdler@gmail.com,28 Spohn Terrace,30720
+175,Nicholas Sparks,NicholasSparks@gmail.com,50342 Londonderry Junction,62694
+176,JOHN SAUL,JOHNSAUL@gmail.com,76474 Dwight Trail,95453
+177,LORNA LANDVIK,LORNALANDVIK@gmail.com,93752 Westend Pass,98539
+178,Steve Thayer,SteveThayer@gmail.com,2186 Elka Drive,18407
+179,Tracy Chevalier,TracyChevalier@gmail.com,4603 Fisk Court,32452
+180,Judith Kelman,JudithKelman@gmail.com,7 Hermina Center,44023
+181,Michael Palmer,MichaelPalmer@gmail.com,26 International Drive,36065
+182,Norman Bridwell,NormanBridwell@gmail.com,4710 Dryden Court,79092
+183,Frank McCourt,FrankMcCourt@gmail.com,465 Eliot Avenue,30121
+184,Malachy McCourt,MalachyMcCourt@gmail.com,7 Maryland Circle,66404
+185,Mari Sandoz,MariSandoz@gmail.com,61 Dorton Park,22639
+186,Anne Perry,AnnePerry@gmail.com,06768 Towne Way,12471
+187,ALEXANDER MCCALL SMITH,ALEXANDERMCCALLSMITH@gmail.com,5325 Lillian Road,71406
+188,Gregory Maguire,GregoryMaguire@gmail.com,25 Declaration Lane,98146
+189,Yann Martel,YannMartel@gmail.com,870 Bobwhite Circle,50672
+190,Ruth Rendell,RuthRendell@gmail.com,3 Manitowish Alley,33859
+191,Al Franken,Franken@gmail.com,1 Spohn Road,95326
+192,DONNA TARTT,DONNATARTT@gmail.com,0623 Elgar Place,80742
+193,Terry Pratchett,TerryPratchett@gmail.com,7983 Magdeline Park,90038
+194,E. B. White,White@gmail.com,70 Gerald Terrace,56461
+195,J. M. Barrie,Barrie@gmail.com,1 Northland Park,91932
+196,Mary O'Hara,Mary@gmail.com,0 Grover Hill,71166
+197,Louise Rennison,LouiseRennison@gmail.com,8 Fuller Junction,55168
+198,Kenneth Grahame,KennethGrahame@gmail.com,5 Arrowood Drive,75560
+199,Bernard Cornwell,BernardCornwell@gmail.com,3560 Loomis Terrace,23255
+200,Charles de Lint,CharlesLint@gmail.com,5981 Muir Park,97913
+201,Edward John Moreton Drax Plunkett Dunsany,EdwardJohnMoretonDraxPlunkettDunsany@gmail.com,62691 Fremont Court,91203
+202,Georgette Heyer,GeorgetteHeyer@gmail.com,798 Morningstar Hill,08046
+203,OSCAR WILDE,OSCARWILDE@gmail.com,76969 Straubel Court,57442
+204,Ted Hughes,TedHughes@gmail.com,0431 Scott Center,93060
+205,ROALD DAHL,ROALDDAHL@gmail.com,24 Little Fleur Parkway,21241
+206,Donna Jo Napoli,DonnaNapoli@gmail.com,002 Ridge Oak Road,05155
+207,A. S. Byatt,Byatt@gmail.com,0 Hoffman Street,30146
+208,Tanuja Desai Hidier,TanujaDesaiHidier@gmail.com,0803 Mosinee Pass,79338
+209,SOPHIE KINSELLA,SOPHIEKINSELLA@gmail.com,16 Drewry Plaza,07477
+210,Isabel Wolff,IsabelWolff@gmail.com,60 Truax Center,10549
+211,Louisa May Alcott,LouisaMayAlcott@gmail.com,864 Alpine Circle,57038
+212,George Orwell,GeorgeOrwell@gmail.com,980 Sherman Park,13054
+213,Isabel Allende,IsabelAllende@gmail.com,1108 Vera Terrace,83448
+214,Ellen Datlow,EllenDatlow@gmail.com,76170 Meadow Vale Pass,09503
+215,Charles Dickens,CharlesDickens@gmail.com,05 Twin Pines Center,08068
+216,A.S. BYATT,BYATT@gmail.com,1 Center Plaza,29532
+217,Joseph Heller,JosephHeller@gmail.com,5 Arizona Crossing,69171
+218,John Galsworthy,JohnGalsworthy@gmail.com,5321 Holmberg Plaza,40506
+219,Enid Blyton,EnidBlyton@gmail.com,05520 Sloan Circle,62046
+220,Neil Gaiman,NeilGaiman@gmail.com,411 Starling Crossing,59446
+221,Alan Moore,AlanMoore@gmail.com,736 Gale Center,54888
+222,Trudy Suggs,TrudySuggs@gmail.com,70562 Mifflin Drive,33738
+223,Tom Wolfe,TomWolfe@gmail.com,618 Emmet Way,54302
+224,Brady Udall,BradyUdall@gmail.com,374 Fulton Alley,98330
+225,Homer Hickam,HomerHickam@gmail.com,855 Oxford Place,01341
+226,Pearl Abraham,PearlAbraham@gmail.com,2 Hoffman Court,16554
+227,Sebastian Junger,SebastianJunger@gmail.com,83 Buena Vista Trail,10120
+228,Karen Armstrong,KarenArmstrong@gmail.com,886 Buhler Point,75779
+229,Mary Barnard,MaryBarnard@gmail.com,2 Fordem Pass,78288
+230,David Brin,DavidBrin@gmail.com,6059 Myrtle Parkway,04680
+231,T. Coraghessan Boyle,CoraghessanBoyle@gmail.com,492 Shasta Center,98940
+232,Paul Woodruff,PaulWoodruff@gmail.com,055 North Court,00610
+233,Lynda Madaras,LyndaMadaras@gmail.com,9 Derek Trail,00660
+234,Stephen McCauley,StephenMcCauley@gmail.com,3673 Old Gate Place,02451
+235,Isabelle Holland,IsabelleHolland@gmail.com,99074 Kensington Court,07842
+236,Pam Conrad,PamConrad@gmail.com,001 Golf View Terrace,76541
+237,Lurlene McDaniel,LurleneMcDaniel@gmail.com,66503 Kim Avenue,20011
+238,John Darnton,JohnDarnton@gmail.com,3784 Morrow Street,04493
+239,Martin Schenk,MartinSchenk@gmail.com,1 Warrior Plaza,09543
+240,DAVID EDDINGS,DAVIDEDDINGS@gmail.com,7 Rowland Crossing,12836
+241,Paul Reiser,PaulReiser@gmail.com,60 Kipling Center,01152
+242,David G. Hartwell,DavidHartwell@gmail.com,3 Schlimgen Pass,67734
+243,Dave Barry,DaveBarry@gmail.com,51 Eggendart Court,01225
+244,John R. Holt,JohnHolt@gmail.com,9 Rigney Way,48054
+245,Theodore Beale,TheodoreBeale@gmail.com,49 Fair Oaks Terrace,34697
+246,Frank M. Robinson,FrankRobinson@gmail.com,6757 8th Street,49685
+247,Mary Jane Clark,MaryJaneClark@gmail.com,8 Old Shore Terrace,43045
+248,Mary Wollstonecraft Shelley,MaryWollstonecraftShelley@gmail.com,85 Heath Center,57794
+249,Robert Westall,RobertWestall@gmail.com,6 Darwin Hill,85671
+250,Robert B. Parker,RobertParker@gmail.com,40 Hintze Park,85085
+251,Rita Chapman Works,RitaChapmanWorks@gmail.com,5858 Mccormick Drive,83429
+252,A. Manette Ansay,ManetteAnsay@gmail.com,25234 Roth Center,54859
+253,Sarah Waters,SarahWaters@gmail.com,32 Thackeray Center,43543
+254,Anne Frank,AnneFrank@gmail.com,0645 Debra Place,30205
+255,Barry Lopez,BarryLopez@gmail.com,93452 Loomis Terrace,75941
+256,Greg Palast,GregPalast@gmail.com,9219 Del Mar Circle,58440
+257,Andrea Kane,AndreaKane@gmail.com,9574 Arizona Lane,39737
+258,Nevada Barr,NevadaBarr@gmail.com,09 Lighthouse Bay Place,18927
+259,Margaret Maron,MargaretMaron@gmail.com,18 Bluestem Lane,31997
+260,John Irving,JohnIrving@gmail.com,56 Express Road,95116
+261,Golding,Golding@gmail.com,459 Michigan Trail,14028
+262,HarperReference,HarperReference@gmail.com,6205 Oriole Drive,07006
+263,LTD,LTD@gmail.com,366 Lighthouse Bay Alley,35042
+264,Ann Patchett,AnnPatchett@gmail.com,802 Brickson Park Alley,59261
+265,Roald Dahl,RoaldDahl@gmail.com,4914 Beilfuss Park,91401
+266,Sue Monk Kidd,SueMonkKidd@gmail.com,7 David Street,27954
+267,Colleen McCullough,ColleenMcCullough@gmail.com,741 Redwing Park,89004
+268,Joanne Harris,JoanneHarris@gmail.com,4349 Hayes Way,47227
+269,Thomas Cahill,ThomasCahill@gmail.com,56839 Reindahl Plaza,20406
+270,Michael Hudson,MichaelHudson@gmail.com,439 Bayside Center,49327
+271,Jane Smiley,JaneSmiley@gmail.com,003 Veith Road,02816
+272,Dick Francis,DickFrancis@gmail.com,4254 Dapin Place,12858
+273,Nora Roberts,NoraRoberts@gmail.com,57 Hudson Alley,37996
+274,Jean Marzollo,JeanMarzollo@gmail.com,71 Parkside Way,74545
+275,Walter Wick,WalterWick@gmail.com,4722 Novick Point,39061
+276,Barbara Delinsky,BarbaraDelinsky@gmail.com,240 Logan Hill,76464
+277,P. D. James,James@gmail.com,49633 Shoshone Road,92515
+278,Christopher Rice,ChristopherRice@gmail.com,1 Monterey Trail,52767
+279,Rex Stout,RexStout@gmail.com,10508 Ohio Road,63565
+280,Joan Anderson,JoanAnderson@gmail.com,67526 Towne Pass,17820
+281,Vance Havner,VanceHavner@gmail.com,11 Lien Street,17699
+282,Warren W. Wiersbe,WarrenWiersbe@gmail.com,39 Fair Oaks Trail,01509
+283,Max Lucado,MaxLucado@gmail.com,212 Messerschmidt Avenue,04646
+284,Lawrence J Crabb,LawrenceCrabb@gmail.com,998 Corben Way,10931
+285,Barry Neil Kaufman,BarryNeilKaufman@gmail.com,0608 Dawn Plaza,24918
+286,Bob Sjogren,BobSjogren@gmail.com,27768 Veith Court,23316
+287,Neal Pirolo,NealPirolo@gmail.com,1239 Manley Trail,12513
+288,William Sleator,WilliamSleator@gmail.com,9 Lake View Trail,39552
+289,Antoine de Saint-ExupÃ©ry,Antoine@gmail.com,2720 Bellgrove Court,75709
+290,Richard Bach,RichardBach@gmail.com,998 Division Terrace,46996
+291,Kevin Sullivan,KevinSullivan@gmail.com,00 Twin Pines Avenue,01590
+292,Michele Morgan,MicheleMorgan@gmail.com,1 Rusk Circle,85925
+293,David Allen Hulse,DavidAllenHulse@gmail.com,552 Darwin Terrace,32238
+294,Richard Webster,RichardWebster@gmail.com,88404 Colorado Way,26146
+295,Bernard King,BernardKing@gmail.com,58337 Sutteridge Parkway,78360
+296,Pat Hutchins,PatHutchins@gmail.com,8 Merchant Avenue,33672
+297,William Shakespeare,WilliamShakespeare@gmail.com,858 Sachs Terrace,04434
+298,Melissa McClone,MelissaMcClone@gmail.com,3670 Butterfield Court,14225
+299,Cheryl St. John,CherylJohn@gmail.com,4327 Delladonna Circle,97470
+300,Lewis Carroll,LewisCarroll@gmail.com,98280 Arkansas Alley,87041
+301,Mark Twain,MarkTwain@gmail.com,524 Ramsey Terrace,38572
+302,Dog Mary Crow,DogMaryCrow@gmail.com,203 Dahle Alley,70437
+303,Linda Gordon,LindaGordon@gmail.com,56 Orin Alley,40383
+304,Florence King,FlorenceKing@gmail.com,99242 Mandrake Place,39347
+305,Alice Sebold,AliceSebold@gmail.com,6 Redwing Avenue,09237
+306,Spalding Gray,SpaldingGray@gmail.com,5 Vernon Road,71291
+307,Thomas Harris,ThomasHarris@gmail.com,31 Delladonna Center,83012
+308,EDWARD RUTHERFURD,EDWARDRUTHERFURD@gmail.com,6018 Leroy Terrace,83420
+309,Margaret Atwood,MargaretAtwood@gmail.com,90 Buell Court,25724
+310,Dorothy Allison,DorothyAllison@gmail.com,51 4th Court,77665
+311,MAYA ANGELOU,MAYAANGELOU@gmail.com,8979 Arizona Center,25972
+312,Edith Wharton,EdithWharton@gmail.com,47 Kensington Court,71120
+313,Mary Brave Bird,MaryBraveBird@gmail.com,3 North Trail,27214
+314,John G. Neihardt,JohnNeihardt@gmail.com,3353 Katie Plaza,53206
+315,James McCourt,JamesMcCourt@gmail.com,5 Evergreen Pass,39337
+316,Bill Bradley,BillBradley@gmail.com,7428 Roth Avenue,92332
+317,Don Miguel Ruiz,DonMiguelRuiz@gmail.com,8586 Donald Street,37605
+318,Elena Castedo,ElenaCastedo@gmail.com,1822 Victoria Avenue,18403
+319,Ferran Torrent,FerranTorrent@gmail.com,2532 Luster Point,79370
+320,Carmen Rico-Godoy,Carmen@gmail.com,20910 Superior Trail,06606
+321,Paul Lester,PaulLester@gmail.com,96 Lindbergh Circle,38258
+322,Leo Tolstoy,LeoTolstoy@gmail.com,30 Erie Park,05731
+323,Robert A Johnson,RobertJohnson@gmail.com,19 Lakewood Circle,05648
+324,Stephanie Maze,StephanieMaze@gmail.com,543 3rd Place,53188
+325,Sandra Dallas,SandraDallas@gmail.com,72796 Gina Pass,62856
+326,Anne McCaffrey,AnneMcCaffrey@gmail.com,0 Montana Drive,46156
+327,David Gemmell,DavidGemmell@gmail.com,40465 Jana Street,56681
+328,Laura Zigman,LauraZigman@gmail.com,36 Dayton Way,21601
+329,Margaret Truman,MargaretTruman@gmail.com,6 Golf Avenue,03222
+330,Paula Danziger,PaulaDanziger@gmail.com,54897 Heffernan Point,72623
+331,Richard A. Lupoff,RichardLupoff@gmail.com,1 Troy Circle,45849
+332,Carrie Bebris,CarrieBebris@gmail.com,139 Debs Street,36135
+333,Ellen Carol Dubois,EllenCarolDubois@gmail.com,359 Sutherland Road,30219
+334,Sam Bobrick,SamBobrick@gmail.com,5382 Mccormick Trail,56650
+335,Donna K Grosvenor,DonnaGrosvenor@gmail.com,33871 Lake View Road,75599
+336,NATHANIEL HAWTHORNE,NATHANIELHAWTHORNE@gmail.com,882 Ilene Center,10543
+337,Valerie Block,ValerieBlock@gmail.com,71336 Raven Drive,47851
+338,Luanne Rice,LuanneRice@gmail.com,525 Burrows Alley,76539
+339,Ellen Gilchrist,EllenGilchrist@gmail.com,02 Northview Crossing,07004
+340,JOHN IRVING,JOHNIRVING@gmail.com,3 Randy Crossing,92211
+341,TIM GAUTREAUX,TIMGAUTREAUX@gmail.com,72424 Raven Hill,36446
+342,Richard Russo,RichardRusso@gmail.com,24351 Comanche Parkway,20230
+343,Jostein Gaarder,JosteinGaarder@gmail.com,4 Schurz Hill,46740
+344,ANNA QUINDLEN,ANNAQUINDLEN@gmail.com,04061 Waubesa Terrace,55037
+345,Diane Johnson,DianeJohnson@gmail.com,41586 Warrior Crossing,61447
+346,DEAN KOONTZ,DEANKOONTZ@gmail.com,39396 Division Pass,38044
+347,Wally Lamb,WallyLamb@gmail.com,0789 Raven Road,98030
+348,Adeline Yen Mah,AdelineYenMah@gmail.com,38405 Ramsey Hill,27298
+349,Barbara Ehrenreich,BarbaraEhrenreich@gmail.com,6405 Morning Crossing,64156
+350,DOROTHY DUNNETT,DOROTHYDUNNETT@gmail.com,8868 Graceland Circle,62639
+351,JOHN LE CARRE,JOHNCARRE@gmail.com,7247 Ridge Oak Road,15034
+352,Emily Dickinson,EmilyDickinson@gmail.com,2 Fallview Pass,72938
+353,Joseph Girzone,JosephGirzone@gmail.com,534 Pennsylvania Point,22469
+354,JOSEPH GIRZONE,JOSEPHGIRZONE@gmail.com,78 Twin Pines Terrace,30161
+355,Lorraine Anderson,LorraineAnderson@gmail.com,857 Moose Junction,30563
+356,AD HUDLER,HUDLER@gmail.com,1870 Loftsgordon Way,64999
+357,Ted L. Nancy,TedNancy@gmail.com,74332 Scoville Lane,04930
+358,Francis Wheen,FrancisWheen@gmail.com,32 Gale Place,73719
+359,Joyce Reardon,JoyceReardon@gmail.com,023 Lakewood Gardens Trail,86514
+360,Sidney Sheldon,SidneySheldon@gmail.com,22 Westport Road,29639
+361,Christopher Moore,ChristopherMoore@gmail.com,6 Debs Alley,79342
+362,Robert Lacey,RobertLacey@gmail.com,70697 Clyde Gallagher Plaza,14472
+363,Tim Dorsey,TimDorsey@gmail.com,0 Annamark Circle,47368
+364,JODI COMPTON,JODICOMPTON@gmail.com,60 2nd Street,21871
+365,Elmore Leonard,ElmoreLeonard@gmail.com,05694 Vahlen Center,12288
+366,Lynn Coady,LynnCoady@gmail.com,72072 Eagan Park,03773
+367,John Lawton,JohnLawton@gmail.com,54608 Maryland Trail,14032
+368,Eileen Yin-Fei Lo,Eileen@gmail.com,5 Heffernan Road,55089
+369,Vikram Seth,VikramSeth@gmail.com,584 Debs Center,35653
+370,Elizabeth Gaskell,ElizabethGaskell@gmail.com,72530 Muir Plaza,69037
+371,Anita Diamant,AnitaDiamant@gmail.com,731 Logan Hill,89173
+372,Lauren Haney,LaurenHaney@gmail.com,63427 Oak Valley Way,77275
+373,Gerald Stern,GeraldStern@gmail.com,377 Mifflin Plaza,46348
+374,Patricia Daniels Cornwell,PatriciaDanielsCornwell@gmail.com,20332 Sycamore Point,25261
+375,Martha Grimes,MarthaGrimes@gmail.com,50 Burning Wood Crossing,56661
+376,Henry James,HenryJames@gmail.com,91080 Graceland Hill,17519
+377,Sarah Orne Jewett,SarahOrneJewett@gmail.com,3 Melody Park,30447
+378,William Carlos Williams,WilliamCarlosWilliams@gmail.com,37 Crowley Park,89048
+379,Anthony Trollope,AnthonyTrollope@gmail.com,06 Hintze Plaza,35612
+380,Harry Kemelman,HarryKemelman@gmail.com,94 Rutledge Terrace,59936
+381,Mil Millington,MilMillington@gmail.com,22 Lerdahl Pass,17763
+382,Suzanne G. Farnham,SuzanneFarnham@gmail.com,5469 Manitowish Terrace,46556
+383,Czeslaw Milosz,CzeslawMilosz@gmail.com,368 Heffernan Center,87022
+384,Roberto Juarroz,RobertoJuarroz@gmail.com,91837 Vera Point,20035
+385,Emma McLaughlin,EmmaMcLaughlin@gmail.com,106 Delladonna Alley,64686
+386,P Coelho,Coelho@gmail.com,9 Northfield Center,32540
+387,Elena Ferrante,ElenaFerrante@gmail.com,1 Victoria Avenue,81004
+388,Paul Jennings,PaulJennings@gmail.com,82 Milwaukee Court,61953
+389,Stephen J. Weininger,StephenWeininger@gmail.com,2344 Mcguire Circle,44682
+390,David Steinman,DavidSteinman@gmail.com,528 Fremont Street,73540
+391,Alfie Kohn,AlfieKohn@gmail.com,6703 Stephen Lane,16426
+392,Paula Polk Lillard,PaulaPolkLillard@gmail.com,88 Southridge Crossing,56425
+393,David Lewis,DavidLewis@gmail.com,5 Florence Drive,45326
+394,Billie Livingston,BillieLivingston@gmail.com,31 Express Place,62519
+395,Adele Lang,AdeleLang@gmail.com,2 Mallard Place,50237
+396,Jen Banbury,JenBanbury@gmail.com,6 Bluejay Trail,36532
+397,Catherine Coulter,CatherineCoulter@gmail.com,9 Dixon Lane,61701
+398,Dominick Dunne,DominickDunne@gmail.com,65931 Atwood Street,28433
+399,Clive Cussler,CliveCussler@gmail.com,426 Myrtle Hill,17855
+400,Carl Hiaasen,CarlHiaasen@gmail.com,53151 Clyde Gallagher Way,31411
+401,Jonathan Safran Foer,JonathanSafranFoer@gmail.com,5 Ruskin Plaza,41763
+402,Francesca Marciano,FrancescaMarciano@gmail.com,275 Gateway Terrace,70542
+403,JULIA GLASS,JULIAGLASS@gmail.com,5 Cardinal Way,63530
+404,Tawni O'Dell,Tawni@gmail.com,7 Thierer Park,39459
+405,Jennifer Weiner,JenniferWeiner@gmail.com,5 Jenna Junction,25868
+406,Danielle Steel,DanielleSteel@gmail.com,9238 Bartelt Center,24330
+407,Russell Banks,RussellBanks@gmail.com,83791 Eliot Pass,97223
+408,Samuel Taylor Coleridge,SamuelTaylorColeridge@gmail.com,21 Lighthouse Bay Avenue,29228
+409,Bobbie Ann Mason,BobbieAnnMason@gmail.com,9 Valley Edge Lane,55433
+410,Karen Robards,KarenRobards@gmail.com,115 Mifflin Drive,55307
+411,Emma Lathen,EmmaLathen@gmail.com,325 Garrison Way,92650
+412,Faye Kellerman,FayeKellerman@gmail.com,88 School Trail,91899
+413,Jacquelyn Mitchard,JacquelynMitchard@gmail.com,695 Everett Plaza,83810
+414,JANE SMILEY,JANESMILEY@gmail.com,373 Charing Cross Alley,12432
+415,DIANE MOTT DAVIDSON,DIANEMOTTDAVIDSON@gmail.com,6021 Redwing Lane,37871
+416,Candace Bushnell,CandaceBushnell@gmail.com,544 Eastwood Way,68044
+417,KRISTIN HANNAH,KRISTINHANNAH@gmail.com,9 Toban Center,87112
+418,Michael Marshall,MichaelMarshall@gmail.com,86871 Stephen Street,12027
+419,Wilbur Smith,WilburSmith@gmail.com,90 Steensland Point,78218
+420,Mike Thaler,MikeThaler@gmail.com,6631 Lakewood Gardens Road,46526
+421,Michael Slade,MichaelSlade@gmail.com,9 Caliangt Point,52766
+422,John Sandford,JohnSandford@gmail.com,6807 Hovde Terrace,24562
+423,TAMI HOAG,TAMIHOAG@gmail.com,1 Anthes Park,49052
+424,Ted Dekker,TedDekker@gmail.com,7974 Farwell Plaza,07041
+425,Angela Elwell Hunt,AngelaElwellHunt@gmail.com,1132 Veith Drive,79788
+426,C. S. Lewis,Lewis@gmail.com,6 Walton Park,49420
+427,William Eisner,WilliamEisner@gmail.com,368 Lighthouse Bay Lane,19487
+428,Robin Cook,RobinCook@gmail.com,573 Fair Oaks Parkway,59345
+429,E. LYNN HARRIS,LYNNHARRIS@gmail.com,149 Lakewood Gardens Parkway,87521
+430,Linda Goodman,LindaGoodman@gmail.com,6142 Troy Road,08055
+431,ANNE RICE,ANNERICE@gmail.com,5901 Banding Alley,43940
+432,Anne Rice,AnneRice@gmail.com,7777 Rowland Circle,24314
+433,Judith Rossner,JudithRossner@gmail.com,9831 Stephen Point,14529
+434,Marilyn French,MarilynFrench@gmail.com,2645 Reindahl Trail,72035
+435,Wayne W. Dyer,WayneDyer@gmail.com,39737 Darwin Crossing,06107
+436,Armistead Maupin,ArmisteadMaupin@gmail.com,02751 Helena Lane,71235
+437,Julie Morgenstern,JulieMorgenstern@gmail.com,92970 Twin Pines Drive,85032
+438,Peter Straub,PeterStraub@gmail.com,39390 Marquette Way,40245
+439,Jack,Jack@gmail.com,2663 Kenwood Drive,26714
+440,Barbara Taylor Bradford,BarbaraTaylorBradford@gmail.com,0 Rieder Place,30238
+441,Lisa Jackson,LisaJackson@gmail.com,4 Mockingbird Alley,20195
+442,SHARYN MCCRUMB,SHARYNMCCRUMB@gmail.com,9590 Vernon Point,57045
+443,Cokie Roberts,CokieRoberts@gmail.com,9 Farmco Trail,72389
+444,Shana Corey,ShanaCorey@gmail.com,10 Daystar Road,14826
+445,Justine Korman,JustineKorman@gmail.com,45 Alpine Crossing,85321
+446,PATRICIA REILLY GIFF,PATRICIAREILLYGIFF@gmail.com,647 Hauk Hill,17545
+447,Beverly Cleary,BeverlyCleary@gmail.com,21880 Waubesa Parkway,22552
+448,K. A. Applegate,Applegate@gmail.com,0 Texas Junction,30633
+449,Jane Yolen,JaneYolen@gmail.com,7288 Kings Court,38055
+450,Dinah L. Moche,DinahMoche@gmail.com,10223 Dryden Circle,39092
+451,Marvin Miller,MarvinMiller@gmail.com,5 Marquette Plaza,63445
+452,Mercedes Lackey,MercedesLackey@gmail.com,818 Pond Park,74159
+453,Dorothy Gilman,DorothyGilman@gmail.com,2 Basil Way,10126
+454,Moveon,Moveon@gmail.com,186 Trailsway Lane,50525
+455,Christopher Finch,ChristopherFinch@gmail.com,88 Vahlen Plaza,81001
+456,Julia Spencer-Fleming,Julia@gmail.com,85632 Weeping Birch Parkway,38012
+457,Fannie Flagg,FannieFlagg@gmail.com,315 American Ash Avenue,55339
+458,Laura Ingall Wilder,LauraIngallWilder@gmail.com,50158 Cardinal Point,23093
+459,LISA GARDNER,LISAGARDNER@gmail.com,068 Chive Trail,47532
+460,Gertrude Chandler Warner,GertrudeChandlerWarner@gmail.com,0 Bultman Place,40481
+461,Lynn S. Hightower,LynnHightower@gmail.com,4 Steensland Pass,72921
+462,Sharyn McCrumb,SharynMcCrumb@gmail.com,96868 Springview Pass,79379
+463,Eric Schlosser,EricSchlosser@gmail.com,98 Farragut Drive,67118
+464,Suzanne Brockmann,SuzanneBrockmann@gmail.com,0 Briar Crest Park,33684
+465,Gail Carson Levine,GailCarsonLevine@gmail.com,82099 Ludington Pass,96678
+466,FRANCES KUFFEL,FRANCESKUFFEL@gmail.com,43479 Crowley Junction,71276
+467,Susan Conant,SusanConant@gmail.com,154 Loeprich Road,32538
+468,DAVID SCHICKLER,DAVIDSCHICKLER@gmail.com,2 Grim Plaza,46978
+469,Judith McNaught,JudithMcNaught@gmail.com,10 Twin Pines Lane,13786
+470,Janet Evanovich,JanetEvanovich@gmail.com,5019 Bashford Hill,47591
+471,Sylvia Plath,SylviaPlath@gmail.com,9 Bayside Plaza,20235
+472,Fern Michaels,FernMichaels@gmail.com,33074 Transport Pass,75232
+473,Betsy Byars,BetsyByars@gmail.com,6910 Dorton Point,98032
+474,Bruce Sterling,BruceSterling@gmail.com,91 International Circle,50559
+475,Sarah Ban Breathnach,SarahBanBreathnach@gmail.com,07 Artisan Pass,90507
+476,Alice Hoffman,AliceHoffman@gmail.com,4717 Pawling Drive,25617
+477,Lisa Scottoline,LisaScottoline@gmail.com,4 Arizona Way,01731
+478,Spencer Johnson,SpencerJohnson@gmail.com,57 Towne Hill,33031
+479,Ian McEwan,IanMcEwan@gmail.com,28 Thompson Way,41538
+480,David Feldman,DavidFeldman@gmail.com,3173 Superior Terrace,33778
+481,Richard Bausch,RichardBausch@gmail.com,48273 Granby Lane,37132
+482,Katie Fforde,KatieFforde@gmail.com,760 Orin Road,56116
+483,James Burke,JamesBurke@gmail.com,66 Springview Point,66738
+484,Bliss Broyard,BlissBroyard@gmail.com,9567 Dayton Alley,29073
+485,Sara Paretsky,SaraParetsky@gmail.com,34058 Northland Hill,03051
+486,Charles Webb,CharlesWebb@gmail.com,855 Knutson Circle,65777
+487,Elizabeth Benedict,ElizabethBenedict@gmail.com,445 Sunbrook Trail,48092
+488,Henry Miller,HenryMiller@gmail.com,8801 Little Fleur Parkway,50110
+489,David Whyte,DavidWhyte@gmail.com,20383 Esker Junction,13251
+490,Martha Beck,MarthaBeck@gmail.com,36730 Ohio Hill,07091
+491,Desmond Mpilo Tutu,DesmondMpiloTutu@gmail.com,18354 Mallory Point,02071
+492,Kris Shepard,KrisShepard@gmail.com,2 Monument Trail,78642
+493,Jack Kerouac,JackKerouac@gmail.com,87 Coolidge Drive,71073
+494,Martin Buber,MartinBuber@gmail.com,309 Boyd Center,75189
+495,NiccolÃ² Machiavelli,Machiavelli@gmail.com,8826 Vera Point,51546
+496,Paul Monette,PaulMonette@gmail.com,017 Vermont Point,43547
+497,Ernest Hemingway,ErnestHemingway@gmail.com,575 Towne Pass,94042
+498,Melody Carlson,MelodyCarlson@gmail.com,9 2nd Park,20416
+499,Alisa Kwitney,AlisaKwitney@gmail.com,27581 Lake View Court,76195
+500,Billie Letts,BillieLetts@gmail.com,29945 Crescent Oaks Junction,08559
+501,Melissa Bank,MelissaBank@gmail.com,929 Dennis Trail,97202
+502,Rena Kornreich Gelissen,RenaKornreichGelissen@gmail.com,12486 Reindahl Street,82070
+503,Moon Unit Zappa,MoonUnitZappa@gmail.com,1 Hazelcrest Junction,96693
+504,Ted Mooney,TedMooney@gmail.com,3 Morningstar Parkway,25832
+505,Susan Wiggs,SusanWiggs@gmail.com,438 Bunting Circle,11794
+506,Gwyn Hyman Rubio,GwynHymanRubio@gmail.com,17 Bay Center,55990
+507,Elisabeth Robinson,ElisabethRobinson@gmail.com,8 Marquette Avenue,62857
+508,Audrey Niffenegger,AudreyNiffenegger@gmail.com,6493 Prairieview Place,21061
+509,Tim Farrington,TimFarrington@gmail.com,11924 Talisman Place,12464
+510,Chaim Potok,ChaimPotok@gmail.com,30412 Fulton Junction,74350
+511,Scott Spencer,ScottSpencer@gmail.com,32930 Lillian Center,93620
+512,V. S. Naipaul,Naipaul@gmail.com,53 Meadow Valley Lane,02052
+513,V.S. Naipaul,Naipaul@gmail.com,389 Mendota Park,08691
+514,Jean Giono,JeanGiono@gmail.com,9123 Bellgrove Crossing,62078
+515,Alain-Fournier,@gmail.com,31299 Columbus Street,57262
+516,Erich Maria Remarque,ErichMariaRemarque@gmail.com,9084 Florence Street,97051
+517,Lewis,Lewis@gmail.com,57703 Westport Way,19073
+518,Rene Barjavel,ReneBarjavel@gmail.com,692 Stephen Park,76858
+519,Alexandra David-NÃ?Â©el,Alexandra@gmail.com,9490 Meadow Valley Point,24941
+520,C. Baudelaire,Baudelaire@gmail.com,94511 Pawling Park,19468
+521,Emile Zola,EmileZola@gmail.com,4341 Emmet Plaza,83870
+522,Pergaud,Pergaud@gmail.com,3318 Fair Oaks Avenue,13041
+523,Collectif,Collectif@gmail.com,91756 Texas Pass,14051
+524,Sten Nadolny,StenNadolny@gmail.com,58559 Monica Alley,80293
+525,Jack Higgins,JackHiggins@gmail.com,7994 Susan Park,17529
+526,Max Allan Collins,MaxAllanCollins@gmail.com,84 Burrows Point,96620
+527,David Guterson,DavidGuterson@gmail.com,26867 Coolidge Park,68843
+528,Bernhard Schlink,BernhardSchlink@gmail.com,0020 Oneill Lane,42352
+529,Eric Jerome Dickey,EricJeromeDickey@gmail.com,92562 Oak Valley Road,00966
+530,Patricia Gaffney,PatriciaGaffney@gmail.com,10497 Anzinger Court,98639
+531,Richard Paul Evans,RichardPaulEvans@gmail.com,33 Paget Avenue,85730
+532,Marc Levy,MarcLevy@gmail.com,911 Lerdahl Alley,75481
+533,Laney Katz Becker,LaneyKatzBecker@gmail.com,8649 Barnett Court,63630
+534,VLADIMIR NABOKOV,VLADIMIRNABOKOV@gmail.com,1 Warbler Court,63137
+535,Jennifer Lauck,JenniferLauck@gmail.com,549 Oak Valley Alley,55354
+536,Joe Keenan,JoeKeenan@gmail.com,356 Bunting Avenue,56088
+537,Jeanne Ray,JeanneRay@gmail.com,58 Kingsford Court,29697
+538,Tony Parsons,TonyParsons@gmail.com,36470 Ridge Oak Lane,33429
+539,Jane McCafferty,JaneMcCafferty@gmail.com,4052 Moulton Terrace,83728
+540,Laura Esquivel,LauraEsquivel@gmail.com,3 Sauthoff Drive,71953
+541,J.R.R. TOLKIEN,TOLKIEN@gmail.com,89337 Gerald Alley,80830
+542,Venise T. Berry,VeniseBerry@gmail.com,50284 Badeau Court,98508
+543,Jan Karon,JanKaron@gmail.com,16360 Crest Line Circle,77048
+544,Cormac McCarthy,CormacMcCarthy@gmail.com,146 Eastwood Point,40874
+545,Travis Thrasher,TravisThrasher@gmail.com,48 Kenwood Terrace,47856
+546,John McEnroe,JohnMcEnroe@gmail.com,9 Anthes Circle,50845
+547,Sally Mandel,SallyMandel@gmail.com,4 Rutledge Parkway,62269
+548,Linda Lay Shuler,LindaLayShuler@gmail.com,2601 Dunning Point,67123
+549,Janet Dailey,JanetDailey@gmail.com,70561 Ludington Hill,89442
+550,Claude Lanzmann,ClaudeLanzmann@gmail.com,80 Nobel Circle,64848
+551,Lemony Snicket,LemonySnicket@gmail.com,27 Riverside Avenue,11947
+552,Matthew Thomas,MatthewThomas@gmail.com,73 Sutherland Alley,88221
+553,Boris Vian,BorisVian@gmail.com,16 Tomscot Point,52624
+554,Hubert Selby,HubertSelby@gmail.com,1 Sommers Plaza,11798
+555,Jacob Weisberg,JacobWeisberg@gmail.com,1185 Fairview Point,85065
+556,David Lodge,DavidLodge@gmail.com,053 International Pass,49760
+557,Judy Hamilton,JudyHamilton@gmail.com,3 Fremont Trail,44036
+558,Philip Ardagh,PhilipArdagh@gmail.com,2202 Hanson Drive,97604
+559,Iain Banks,IainBanks@gmail.com,931 Homewood Center,98107
+560,David Crombie,DavidCrombie@gmail.com,9 Redwing Parkway,29689
+561,John Steinbeck,JohnSteinbeck@gmail.com,33 Donald Terrace,38856
+562,Richard Brassey,RichardBrassey@gmail.com,5458 Meadow Vale Avenue,14784
+563,Jean Van Hamme,JeanVanHamme@gmail.com,44219 Lunder Pass,56211
+564,R. W. Holder,Holder@gmail.com,30 Laurel Alley,34081
+565,Bernard Werber,BernardWerber@gmail.com,1 Superior Crossing,42130
+566,Andy Sloss,AndySloss@gmail.com,9 Rowland Circle,26610
+567,ALLAN ZOLA KRONZEK,ALLANZOLAKRONZEK@gmail.com,4147 Ludington Street,72928
+568,Charles L. Squire,CharlesSquire@gmail.com,12999 Mockingbird Hill,79546
+569,Gordon Jarvie,GordonJarvie@gmail.com,75 Pearson Park,48504
+570,Alan Spence,AlanSpence@gmail.com,7 Pine View Center,04756
+571,Alan Alexander Milne,AlanAlexanderMilne@gmail.com,76 Basil Drive,70503
+572,Elizabeth Strout,ElizabethStrout@gmail.com,5 Carpenter Avenue,78216
+573,David Sedaris,DavidSedaris@gmail.com,1857 Cambridge Circle,73532
+574,Leslie Feinberg,LeslieFeinberg@gmail.com,98 Bay Plaza,23947
+575,Chris Anne Wolfe,ChrisAnneWolfe@gmail.com,56320 Vernon Terrace,50220
+576,Lauren Sanders,LaurenSanders@gmail.com,8 Briar Crest Lane,92197
+577,Gael Baudino,GaelBaudino@gmail.com,91 Buena Vista Center,47848
+578,Lauren Maddison,LaurenMaddison@gmail.com,99957 Oneill Place,27920
+579,Carol Anshaw,CarolAnshaw@gmail.com,53 Prairie Rose Point,32257
+580,Jean Stewart,JeanStewart@gmail.com,78282 Bonner Hill,15078
+581,Emma Donoghue,EmmaDonoghue@gmail.com,1 Starling Pass,94284
+582,Deborah McDowell,DeborahMcDowell@gmail.com,009 Valley Edge Plaza,48073
+583,Karen X. Tulchinsky,KarenTulchinsky@gmail.com,596 Union Court,83311
+584,Jill Thompson,JillThompson@gmail.com,58 Bonner Road,15312
+585,Jody Seay,JodySeay@gmail.com,7 Huxley Place,50544
+586,Manda Scott,MandaScott@gmail.com,5 Armistice Center,33449
+587,Jeff Foxworthy,JeffFoxworthy@gmail.com,333 Jana Parkway,11735
+588,Terry Brooks,TerryBrooks@gmail.com,245 Becker Drive,85363
+589,A.C. Crispin,Crispin@gmail.com,9 Clarendon Park,72339
+590,A. C. Crispin,Crispin@gmail.com,6 Shasta Road,19102
+591,Madelyn Arnold,MadelynArnold@gmail.com,796 Lotheville Park,14469
+592,Tamora Pierce,TamoraPierce@gmail.com,45 Becker Street,23083
+593,Carolyn Chute,CarolynChute@gmail.com,18 Mcguire Terrace,12072
+594,Sara Orwig,SaraOrwig@gmail.com,475 Bunker Hill Alley,57366
+595,Melisa Michaels,MelisaMichaels@gmail.com,35 Anniversary Way,02840
+596,Isobel Bird,IsobelBird@gmail.com,62844 Main Street,50570
+597,Frederik Pohl,FrederikPohl@gmail.com,18 Leroy Park,52350
+598,VONDA MCINTYRE,VONDAMCINTYRE@gmail.com,25 Waubesa Park,17506
+599,John Varley,JohnVarley@gmail.com,27 Grim Parkway,08087
+600,Nancy Garden,NancyGarden@gmail.com,123 Dayton Point,30548
+601,Nicola Griffith,NicolaGriffith@gmail.com,94 Pleasure Plaza,31821
+602,Julie Campbell,JulieCampbell@gmail.com,81 Havey Parkway,99139
+603,LEE SMITH,LEESMITH@gmail.com,693 Acker Court,64090
+604,JACQUELINE WOODSON,JACQUELINEWOODSON@gmail.com,324 Nobel Crossing,74459
+605,Jacqueline Woodson,JacquelineWoodson@gmail.com,1 Gina Lane,04415
+606,Pat Head Summitt,PatHeadSummitt@gmail.com,073 7th Crossing,65607
+607,Richard Belzer,RichardBelzer@gmail.com,7851 Westport Road,70663
+608,Nick Hornby,NickHornby@gmail.com,08558 Almo Plaza,72638
+609,Andrew L. Johnson,AndrewJohnson@gmail.com,99 Knutson Street,26451
+610,Marian Babson,MarianBabson@gmail.com,8 Dryden Place,35565
+611,W. Michael Gear,MichaelGear@gmail.com,9874 Monica Junction,79548
+612,Peter Hoeg,PeterHoeg@gmail.com,31 Wayridge Court,65026
+613,Erma Bombeck,ErmaBombeck@gmail.com,1 Elmside Drive,23943
+614,E. L. Doctorow,Doctorow@gmail.com,5517 Commercial Junction,72651
+615,Simon Schama,SimonSchama@gmail.com,0953 North Way,71367
+616,Frank Waters,FrankWaters@gmail.com,9430 Sachs Place,58405
+617,Karen Hesse,KarenHesse@gmail.com,72 Tennessee Lane,14111
+618,Kenneth Oppel,KennethOppel@gmail.com,214 Stang Crossing,83687
+619,Carol Ryrie Brink,CarolRyrieBrink@gmail.com,8450 Eastlawn Plaza,87044
+620,Shelly R. Roberts,ShellyRoberts@gmail.com,3 Logan Terrace,71133
+621,Diane Duane,DianeDuane@gmail.com,90 Cordelia Lane,17201
+622,Carolee Brockmann,CaroleeBrockmann@gmail.com,3966 Lukken Pass,12989
+623,Rachel Roberts,RachelRoberts@gmail.com,27 Pankratz Park,55588
+624,Lensey Namioka,LenseyNamioka@gmail.com,7 Bartillon Place,12978
+625,Jackie Eileen Behrend,JackieEileenBehrend@gmail.com,1315 Ridgeway Street,49548
+626,Andrew Clements,AndrewClements@gmail.com,12 Blaine Point,71720
+627,LOIS LOWRY,LOISLOWRY@gmail.com,1231 Bayside Parkway,37853
+628,Paul Hattaway,PaulHattaway@gmail.com,51949 Jenifer Parkway,95532
+629,Alain Stella,AlainStella@gmail.com,8 Farragut Circle,96764
+630,Patricia Highsmith,PatriciaHighsmith@gmail.com,0 Fallview Terrace,75109
+631,Stephen Donaldson,StephenDonaldson@gmail.com,1600 Spaight Road,43227
+632,STEPHEN R. DONALDSON,STEPHENDONALDSON@gmail.com,4594 Kropf Lane,04983
+633,Ellen Rimbauer,EllenRimbauer@gmail.com,257 Sugar Hill,51563
+634,John Borneman,JohnBorneman@gmail.com,2103 Merry Pass,35016
+635,ROBERT S. MCELVAINE,ROBERTMCELVAINE@gmail.com,961 Crowley Park,15317
+636,Bram Stoker,BramStoker@gmail.com,06371 Cascade Junction,68001
+637,Michael A. Stackpole,MichaelStackpole@gmail.com,419 Ridgeview Point,43925
+638,Langston Hughes,LangstonHughes@gmail.com,60 Johnson Drive,64084
+639,Carole Matthews,CaroleMatthews@gmail.com,39606 Arapahoe Park,26260
+640,Jacqueline L. Tobin,JacquelineTobin@gmail.com,37 Melrose Center,49287
+641,Marion Zimmer Bradley,MarionZimmerBradley@gmail.com,87783 Corry Lane,61863
+642,Andrei Codrescu,AndreiCodrescu@gmail.com,96535 Merry Street,80612
+643,Carolyne Aarsen,CarolyneAarsen@gmail.com,65 Thompson Center,85532
+644,Louis L'Amour,Louis@gmail.com,13 Village Green Court,67004
+645,Anthony J Alessandra,AnthonyAlessandra@gmail.com,7 Columbus Pass,62533
+646,Charles R. Swindoll,CharlesSwindoll@gmail.com,769 Spohn Hill,63545
+647,Orson Scott Card,OrsonScottCard@gmail.com,08 Almo Point,76370
+648,V. A Howard,Howard@gmail.com,3025 Union Alley,19148
+649,Kate Chopin,KateChopin@gmail.com,20 Bobwhite Hill,60130
+650,Donald Merriam Allen,DonaldMerriamAllen@gmail.com,1 Ilene Center,53139
+651,William Maples,WilliamMaples@gmail.com,3 Rutledge Alley,72331
+652,Richard Peck,RichardPeck@gmail.com,14 Oxford Center,16619
+653,Michael Connelly,MichaelConnelly@gmail.com,998 Reinke Point,72460
+654,John T. Lescroart,JohnLescroart@gmail.com,94111 Darwin Lane,32722
+655,John Jakes,JohnJakes@gmail.com,54 Clove Lane,50551
+656,Alice McDermott,AliceMcDermott@gmail.com,5306 Becker Lane,52756
+657,Hilary Bailey,HilaryBailey@gmail.com,5 Shelley Road,59323
+658,Howard Fast,HowardFast@gmail.com,672 Montana Road,79908
+659,Jessica Fletcher,JessicaFletcher@gmail.com,808 Utah Hill,83404
+660,RICHARD NORTH PATTERSON,RICHARDNORTHPATTERSON@gmail.com,3 Hoepker Alley,72354
+661,Eileen Goudge,EileenGoudge@gmail.com,66575 Eastlawn Court,60959
+662,DANIELLE STEEL,DANIELLESTEEL@gmail.com,2499 Acker Point,25725
+663,Arnette Lamb,ArnetteLamb@gmail.com,6 Bobwhite Court,15870
+664,WALTER CRONKITE,WALTERCRONKITE@gmail.com,74 Hudson Way,50240
+665,Tom Mula,TomMula@gmail.com,0768 Donald Parkway,17922
+666,Lois Faye Dyer,LoisFayeDyer@gmail.com,43 Dwight Alley,61459
+667,Sharon Lamb,SharonLamb@gmail.com,40167 Nobel Junction,29652
+668,Sir Arthur Conan Doyle,SirArthurConanDoyle@gmail.com,832 Schiller Junction,62348
+669,AGATHA CHRISTIE,AGATHACHRISTIE@gmail.com,8 Michigan Park,89510
+670,Mark Cohen,MarkCohen@gmail.com,85626 Sachtjen Plaza,44903
+671,Sherry Shahan,SherryShahan@gmail.com,6639 Hoard Crossing,36460
+672,Helen Myers,HelenMyers@gmail.com,9216 Starling Lane,90084
+673,Irving. Adler,Adler@gmail.com,931 Tony Alley,61014
+674,Elizabeth Peters,ElizabethPeters@gmail.com,74796 Nancy Circle,98275
+675,Shirlee Busbee,ShirleeBusbee@gmail.com,29 Nelson Court,30119
+676,EMILY BRONTE,EMILYBRONTE@gmail.com,250 Michigan Crossing,92191
+677,Frank E. Peretti,FrankPeretti@gmail.com,81 Marcy Junction,66901
+678,John A. Keel,JohnKeel@gmail.com,3 Waywood Plaza,02893
+679,Stefanie Scott,StefanieScott@gmail.com,42 Hollow Ridge Plaza,30547
+680,Rebecca Winters,RebeccaWinters@gmail.com,750 Superior Drive,33484
+681,Mary-Kate,@gmail.com,1315 Hanover Point,72027
+682,Ashley Olsen,AshleyOlsen@gmail.com,9595 Mitchell Circle,44709
