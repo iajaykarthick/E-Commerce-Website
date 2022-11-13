@@ -47,13 +47,13 @@ CREATE TABLE PUBLISHER (
 -- 3. BOOK
 DROP TABLE IF EXISTS BOOK;
 CREATE TABLE BOOK (
-	ISBN 			VARCHAR(10)  	PRIMARY KEY UNIQUE,
+	ISBN 		VARCHAR(10)  	PRIMARY KEY UNIQUE,
 	title 		VARCHAR(255) 	NOT NULL,
-    description		TEXT,
-	price 			float 		NOT NULL,
-	Publisher_ID 		INT,
-	published_Year 		year,
-	image_short		VARCHAR(255),
+	description	TEXT,
+	price 		float 		NOT NULL,
+	Publisher_ID 	INT,
+	published_Year 	year,
+	image_short	VARCHAR(255),
     image_medium	VARCHAR(255),
     image_large		VARCHAR(255),
 	FOREIGN KEY (Publisher_ID) 
