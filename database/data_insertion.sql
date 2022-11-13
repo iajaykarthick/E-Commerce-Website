@@ -14,7 +14,7 @@ OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/books.csv'
+LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/final_books.csv'
 INTO TABLE BOOK
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
