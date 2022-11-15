@@ -53,9 +53,7 @@ CREATE TABLE BOOK (
 	price 		float 		NOT NULL,
 	Publisher_ID 	INT,
 	published_Year 	year,
-	image_short	VARCHAR(255),
-    image_medium	VARCHAR(255),
-    image_large		VARCHAR(255),
+	image		VARCHAR(255),
 	FOREIGN KEY (Publisher_ID) 
 		REFERENCES PUBLISHER(Publisher_ID)
 );
@@ -123,13 +121,13 @@ CREATE TABLE SUBSCRIPTION (
 -- 9. CUSTOMER
 DROP TABLE IF EXISTS CUSTOMER;
 CREATE TABLE CUSTOMER (
-	Customer_ID 		INT 	    PRIMARY KEY AUTO_INCREMENT,
-	Customer_First_Name	VARCHAR(20) NOT NULL,
-	Customer_Last_Name 	VARCHAR(20) NOT NULL,
-	Customer_Email 		VARCHAR(50) NOT NULL,
-	Customer_Gender 	VARCHAR(15) NOT NULL,
-	Customer_Phone 		CHAR(12)    NOT NULL,
-	Customer_Address	VARCHAR(30) NOT NULL,
+	ID 			INT 	    PRIMARY KEY AUTO_INCREMENT,
+	First_Name		VARCHAR(20) NOT NULL,
+	Last_Name 		VARCHAR(20) NOT NULL,
+	Email 			VARCHAR(50) NOT NULL UNIQUE,
+	Gender 			VARCHAR(15) NOT NULL,
+	Phone 			CHAR(12)    NOT NULL,
+	Address			VARCHAR(30) NOT NULL,
 	Zipcode 		CHAR(7)     NOT NULL,
 	Subscription_ID 	INT 	    NOT NULL,
 	Subscription_Start_Date date 	    NOT NULL,
@@ -146,7 +144,7 @@ CREATE TABLE LOGIN(
 	Password  	VARCHAR(10),
 	Last_Login 	timestamp,
 	FOREIGN KEY (Customer_ID)
-		REFERENCES CUSTOMER (Customer_ID)
+		REFERENCES CUSTOMER (ID)
 );
 
 -- 11. PAYMENT
@@ -164,7 +162,7 @@ CREATE TABLE ORDERS (
 	Total_Price float,
 	Payment_ID  INT,
 	FOREIGN KEY (Customer_ID) 
-		REFERENCES CUSTOMER (Customer_ID),
+		REFERENCES CUSTOMER (ID),
 	FOREIGN KEY (Payment_ID) 
 		REFERENCES PAYMENT (Payment_ID)
 );
@@ -190,7 +188,7 @@ CREATE TABLE WISH_LIST (
 	ISBN		VARCHAR(10) ,
 	PRIMARY KEY (Customer_ID,ISBN),
 	FOREIGN KEY (Customer_ID) 
-		REFERENCES CUSTOMER (Customer_ID),
+		REFERENCES CUSTOMER (ID),
 	FOREIGN KEY (ISBN) 
 		REFERENCES BOOK (ISBN)
 );
@@ -203,7 +201,7 @@ CREATE TABLE CART (
 	Quantity    INT,
 	PRIMARY KEY (Customer_ID,ISBN),
 	FOREIGN KEY (Customer_ID) 
-		REFERENCES CUSTOMER (Customer_ID),
+		REFERENCES CUSTOMER (ID),
 	FOREIGN KEY (ISBN) 
 		REFERENCES BOOK (ISBN)
 );
@@ -234,7 +232,7 @@ CREATE TABLE CUSTOMER_PREFERENCE (
 	Genre_ID    INT ,
 	PRIMARY KEY(Customer_ID,Genre_ID),
 	FOREIGN KEY (Customer_ID) 
-		REFERENCES CUSTOMER(Customer_ID),
+		REFERENCES CUSTOMER (ID),
 	FOREIGN KEY (Genre_ID) 
 		REFERENCES GENRE(Genre_ID)
 );

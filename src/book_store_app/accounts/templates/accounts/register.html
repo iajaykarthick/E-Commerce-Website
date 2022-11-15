@@ -1,0 +1,162 @@
+{% extends "base_layout.html" %}
+{% load static %}
+{% block content %}
+
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-2">
+                    <div class="row g-0">
+
+                        <div class="col-xl-6 d-none d-xl-block">
+                                <img src="{% static 'books.jpeg'%}"
+                                alt="Sample photo"
+                                style="object-fit: cover; max-width:100%; height:100%; padding: 2rem 0 6rem 8rem;"
+                                />
+                        </div>
+
+                        <div class="col-xl-6">
+                            <form id="register_form" action="" method="POST">
+                                <div class="card-body p-md-5 text-black">
+                                    <h3 class="mb-2 text-uppercase">User registration form</h3>
+                                
+                                    {% csrf_token %}
+                                    {% if error_msg %}
+                                      <div class="alert alert-danger" role="alert">
+                                        {{error_msg}}
+                                      </div>
+                                    {% endif %}
+
+                                    {% comment %} Email Address Field {% endcomment %}
+                                    <div class="form-outline mb-2">
+                                        <input type="email" class="form-control form-control-lg" name="email" required/>
+                                        <label class="form-label">Email address</label>
+                                    </div>
+
+                                    {% comment %} Password Field {% endcomment %}
+                                    <div class="form-outline mb-2">
+                                        <div class="input-group">
+                                            <input type="password" class="form-control form-control-lg" name="password" id="password" required/>
+                                            <span class="input-group-text"><i id="togglePassword" class="bi bi-eye-slash" ></i></span>
+                                        </div>
+                                        
+                                        <label class="form-label">Password</label>
+                                    </div>
+
+                                    {% comment %} First name and Last name Row {% endcomment %}
+                                    <div class="row">
+                                        
+                                        {% comment %} First Name Field {% endcomment %}
+                                        <div class="col-md-6 mb-2">
+                                            <div class="form-outline">
+                                                <input 
+                                                    type="text" class="form-control form-control-lg"  name="fname" required/>
+                                                <label class="form-label">First name</label>
+                                            </div>
+                                        </div>
+                                    
+                                        {% comment %} Last Name Field {% endcomment %}
+                                        <div class="col-md-6 mb-2">
+                                            <div class="form-outline">
+                                                <input type="text"  class="form-control form-control-lg"  name="lname" />
+                                                <label class="form-label">Last name</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    
+                                    
+                        
+
+                                    {% comment %} Gender Row {% endcomment %}
+                                    <div class="d-md-flex justify-content-start align-items-center mb-2">
+
+                                        <h6 class="mb-0 me-4">Gender: </h6>
+                                        {% comment %} Female gender option {% endcomment %}
+                                        <div class="form-check form-check-inline mb-0 me-4">
+                                            <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="female" required/>
+                                            <label class="form-check-label" for="femaleGender">Female</label>
+                                        </div>
+                                        {% comment %} Male gender option {% endcomment %}
+                                        <div class="form-check form-check-inline mb-0 me-4">
+                                            <input class="form-check-input" type="radio" name="gender" id="maleGender" value="male" />
+                                            <label class="form-check-label" for="maleGender">Male</label>
+                                        </div>
+                                        
+                                        {% comment %} Other gender option {% endcomment %}
+                                        <div class="form-check form-check-inline mb-0">
+                                            <input class="form-check-input" type="radio" name="gender" id="otherGender" value="other" />
+                                            <label class="form-check-label" for="otherGender">Other</label>
+                                        </div>
+                                    </div>
+                        
+                                    {% comment %} Address Field {% endcomment %}
+                                    <div class="form-outline mb-2">
+                                        <input type="text" class="form-control form-control-lg" required name="address"/>
+                                        <label class="form-label">Address</label>
+                                    </div>
+
+
+                                    {% comment %} Zipcode field {% endcomment %}
+                                    <div class="form-outline mb-2">
+                                        <input type="text"  class="form-control form-control-lg" required name="zipcode"/>
+                                        <label class="form-label">Zipcode</label>
+                                    </div>
+                    
+                                    {% comment %} Phone number field {% endcomment %}
+                                    <div class="form-outline mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">+1</span>
+                                            <input type="tel"  class="form-control form-control-lg" required name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="eg: 999-999-9999"/>
+                                        </div>
+                                        <label class="form-label">Phone number</label>    
+                                    </div>
+                                    
+                                    {% comment %} Subscription field dropdown {% endcomment %}
+                                    <div class="col-md-6 mb-2">
+                                        <select name="subscription" class="form-select form-select-md" aria-label=".form-select-lg example">
+                                            <option value="1" selected>Silver</option>
+                                            <option value="2">Gold</option>
+                                            <option value="3">Platinum</option>
+                                        </select>
+                                        <label class="form-label">Subscription</label>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-end pt-3">
+                                        <button type="button" class="btn btn-light btn-lg" onclick="reset_register_form()">Reset all</button>
+                                        <input type="submit" class="btn btn-warning btn-lg ms-2" value="Submit form" />
+                                    </div>
+                                    Already have an account? <a href="{% url 'accounts:login'%}">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+        // toggle the type attribute
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        
+        // toggle the icon
+        this.classList.toggle("bi-eye");
+    });
+
+    // prevent form submit
+    const form = document.querySelector("form");
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+    });
+</script>
+
+
+{% endblock %}

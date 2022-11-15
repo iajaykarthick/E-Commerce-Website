@@ -1,16 +1,53 @@
 {% extends 'base_layout.html' %}
 {% block content %}
-  <h2>Book List</h2>
   <br>
-  <div class="books">
-    {% for book in books %}
-      <div class="book">
-        <p> Test </p>
-      {% comment %} <h2> <a href="{% url 'books:detail' slug=book.slug %}">{{ book.title }}</a> </h2> {% endcomment %}
-        <p>{{ book.name }}</p>
-        <p>{{ book.price }}</p>
-        {% comment %} <p class="author">added by {{ book.author.username }} </p> {% endcomment %}
+  
+  <div class="container mt-4">
+    <div class="row">
+      {% for book in books %}
+      <div class="col-auto mb-4">
+        <div class="card h-100" style="width: 15rem;">
+          <img src={{book.image}} class="card-img-top thumbnail" style="height: 150px; object-fit: contain;" alt="image">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{book.title|title|slice:":19" }}</h5>
+            <p class="card-text" style="font-size:12px; font-family: Arial, Helvetica, sans-serif;">{{ book.description | slice:":130" }}</p>
+
+            <div class="mt-auto">
+              <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+              <a href="{% url 'books:detail' book.ISBN %}" class="btn btn-outline-primary">View</a>
+            </div>
+          </div>
+        </div>  
       </div>
     {% endfor %}
+    </div>
   </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+  {% if books.has_previous %}
+  <li class="page-item">
+    <a  class="page-link" href="?page=1">&laquo First</a>
+  </li>
+  <li class="page-item">
+    <a  class="page-link" href="?page={{books.previous_page_number}}">Previous</a>
+  </li>
+  {% endif %}
+  <li class="page-item disabled"> 
+    <a class="page-link" href="#">
+      Page {{ books.number }} of {{ books.paginator.num_pages }}
+    </a>
+  </li>
+  {% if books.has_next %}
+  <li class="page-item">
+    <a class="page-link" href="?page={{ books.next_page_number}}">Next</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="?page={{ books.paginator.num_pages }}">Last 
+      &raquo </a>
+  </li>
+</ul>
+</nav>
+
+  {% endif %}
 {% endblock %}

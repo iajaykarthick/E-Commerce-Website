@@ -1,13 +1,20 @@
-{% comment %} {% load staticfiles %} {% endcomment %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Article List</title>
+    <title>Book Store</title>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <script src="{% static 'myscript.js'%}"></script>
+    
     {% comment %} <link rel="stylesheet" href="{% static 'style.css'%}"> {% endcomment %}
   </head>
   <body>
+
+    {% include 'navbar.html'%}
     {% comment %} <header class="wrapper">
       <h1> <a href="{% url 'home' %}"> <img src="{% static 'article_logo.png'%}" alt="" width="42" height="42"> </a> </h1>
       <nav>
@@ -32,11 +39,13 @@
           {% endif %}
         </ul>
       </nav>
-    </header> {% endcomment %}
-    <div class="wrapper">
+    </header>  {% endcomment %}
+
       {% block content %}
 
       {% endblock %}
-    </div>
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
   </body>
 </html>
