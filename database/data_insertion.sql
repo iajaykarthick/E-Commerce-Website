@@ -1,49 +1,49 @@
 USE BOOK_STORE;
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/zipcode.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/zipcode.csv'
 INTO TABLE ZIPCODE
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/Publisher.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Publisher.csv'
 INTO TABLE PUBLISHER
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
+LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/final_books.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/final_books.csv'
 INTO TABLE BOOK
 FIELDS TERMINATED BY ','
-OPTIONALLY ENCLOSED BY '"'
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/Authors.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Authors.csv'
 INTO TABLE AUTHOR
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
+LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/Author_ISBN.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Author_ISBN.csv'
 INTO TABLE AUTHOR_BOOK
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/store.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/store.csv'
 INTO TABLE STORE
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
+LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/Store_Copies.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Store_Copies.csv'
 INTO TABLE STORE_COPIES
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
@@ -51,14 +51,14 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/subscription.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/subscription.csv'
 INTO TABLE SUBSCRIPTION
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/customer.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/customer.csv'
 INTO TABLE CUSTOMER
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
@@ -66,7 +66,7 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/Genre.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Genre.csv'
 INTO TABLE GENRE
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
@@ -74,7 +74,7 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 
-LOAD DATA INFILE '~/dev/assignments/DS5110/Project/Online-Book-Store/database/data/Book_Genre.csv'
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Book_Genre.csv'
 INTO TABLE BOOK_GENRE
 FIELDS TERMINATED BY ','
 OPTIONALLY ENCLOSED BY '"'
