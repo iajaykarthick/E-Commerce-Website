@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from . import shivani_db as db
 # DB
 from django.db import connection
 
@@ -68,3 +68,13 @@ def book_detail(request, isbn):
     book[0]['genres'] = ', '.join(genres)
     
     return render(request, 'books/book_detail.html', {'book': book[0]})
+
+@my_login_required
+def add_to_cart(request, isbn):
+    context = {'error_msg': ''}
+    print(f'Request is {request.POST}')
+    ## Insert into cart table 
+    email=request.session['user_id']
+    cart = db.add_to_cart(isbn,email,1)
+        
+    return render(request, 'books/cart.html', context)
