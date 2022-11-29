@@ -104,5 +104,6 @@ def add_to_cart(request):
     query_string =  urlencode({'cart_added': True})  # 2 cart_added=True
     url = '{}?{}'.format(base_url, query_string)  # /books/?cart_added=True
 
-    return redirect(url)
+    return render(request, 'books/cart.html', {})
+    #return redirect(url)
     
