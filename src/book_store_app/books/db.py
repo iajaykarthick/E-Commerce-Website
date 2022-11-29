@@ -26,3 +26,34 @@ def add_to_cart(book_isbn,email,quantity):
         print(e)
         return -1
     return 1
+
+
+
+def cart_details(email):
+ 
+    try:
+        with connection.cursor() as cursor:
+            
+            user=(" SELECT  ID from Customer where EMAIL =(%s)")
+            cursor.execute(user,[email])
+            query_results = cursor.fetchall()
+            user_id = query_results[0][0]
+            print(user_id)
+            print("Showing the cart of the particular customer")
+            cart_details = (f'''select c.ISBN,b.image,b.title,b.price from book b
+                            join cart c
+                            on c.ISBN = b.ISBN
+                            where c.Customer_ID = {user_id} ''')
+
+            cursor.execute(cart_details)
+            query_results = cursor.fetchall()
+            columns = [col[0] for col in cursor.description]
+            print(columns)
+            cart = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(query_results)]
+            
+    
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
+    return cart

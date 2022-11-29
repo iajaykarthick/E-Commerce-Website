@@ -107,3 +107,16 @@ def add_to_cart(request):
     return render(request, 'books/cart.html', {})
     #return redirect(url)
     
+
+
+@my_login_required
+def get_cart_details(request):
+
+    ## Insert into cart table 
+    email=request.session['user_id']
+    cart_details=db.cart_details(email)
+    print("Printing the cart details")
+    for i in cart_details:
+        print(i)
+    return render(request, 'books/cart.html', {})
+    #return redirect(url)
