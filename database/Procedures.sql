@@ -1,4 +1,4 @@
-## 1 STored Procedure 
+## 1 Stored Procedure 
 # Getting book name with author 
 
 delimiter $$
@@ -17,10 +17,8 @@ delimiter ;
 
 call books_with_author('helprin');
 
-
 ## 2nd Stored Procedure 
 # Getting book name with publisher name  
-
 delimiter $$
 create procedure books_with_publisher(
 	in publisher_name varchar(80) 
@@ -36,7 +34,6 @@ delimiter ;
 
 ## 3rd Procedure
 # Getting book name with Genre  
-
 delimiter $$
 create procedure books_with_genre(
 	in genre_name varchar(80) 
