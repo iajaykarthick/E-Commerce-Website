@@ -27,3 +27,7 @@ media
 # Python
 *.py[cod] 
 *$py.class
+
+
+# Shell script to create and insert db tables
+database/load_data.sh
