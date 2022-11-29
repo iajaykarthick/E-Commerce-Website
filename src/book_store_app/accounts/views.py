@@ -12,10 +12,12 @@ def home(request):
     return HttpResponse('<h1>Hello World!</h1>')
 
 def redirect_view(request):
+    
     response = redirect('accounts:login')
     return response
 
 def register_user(request):
+    
     context = {'error_msg': ''}
     if request.method == 'POST':
         print(f'Request is {request.POST}')

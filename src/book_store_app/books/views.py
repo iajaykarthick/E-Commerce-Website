@@ -1,5 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from urllib.parse import urlencode
+from django.urls import reverse
+from django.http.response import JsonResponse
+from django.shortcuts import render, redirect
 from . import db as db
 # DB
 from django.db import connection
@@ -16,8 +19,28 @@ app_name = 'books'
 @my_login_required
 def book_list(request):
     
+    cart_added = False
     cursor = connection.cursor()
-    cursor.execute('SELECT * FROM BOOK')
+    
+    if request.method == 'POST':
+        print(f'Request is {request.POST}')
+            
+        isbn = request.POST['ISBN']
+        
+        ## Insert into cart table 
+        email= request.session['user_id']
+        result = db.add_to_cart(isbn,email, 1)
+        if result == 1:
+            cart_added = True
+        
+    # cursor.execute('SELECT * FROM BOOK')
+    
+    cursor.execute('''
+                    SELECT B.*, C.QUANTITY 
+                    FROM BOOK B 
+                    LEFT JOIN (SELECT * FROM CART WHERE CUSTOMER_ID = 1001) C
+                    ON B.ISBN = C.ISBN;
+                   ''')
 
     query_results = cursor.fetchall()
     
@@ -33,7 +56,9 @@ def book_list(request):
     context = {
          'books_list':books_list,
          'books': books,
-         'request': request
+         'request': request,
+         'cart_count': 10,
+         'added': cart_added
     }
     
     return render(request,'books/books_list.html',context)
@@ -70,11 +95,14 @@ def book_detail(request, isbn):
     return render(request, 'books/book_detail.html', {'book': book[0]})
 
 @my_login_required
-def add_to_cart(request, isbn):
-    context = {'error_msg': ''}
-    print(f'Request is {request.POST}')
+def add_to_cart(request):
+
     ## Insert into cart table 
     email=request.session['user_id']
-    cart = db.add_to_cart(isbn,email,1)
-        
-    return render(request, 'books/cart.html', context)
+     
+    base_url = reverse('books:list')  # 1 /books/
+    query_string =  urlencode({'cart_added': True})  # 2 cart_added=True
+    url = '{}?{}'.format(base_url, query_string)  # /books/?cart_added=True
+
+    return redirect(url)
+    

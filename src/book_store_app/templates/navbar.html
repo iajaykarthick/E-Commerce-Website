@@ -15,7 +15,11 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
+
         {% if 'user_id' in request.session%}
+
+        <a href="{% url 'books:list'%}"><i class="fa badge fa-lg" value={{cart_count}}>&#xf07a;</i></a>
+
         <form action="{% url 'accounts:logout' %}">
          <input type="submit" class="btn btn-outline-primary" value="Logout">
         </form>

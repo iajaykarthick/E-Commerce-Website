@@ -7,7 +7,6 @@ def add_to_cart(book_isbn,email,quantity):
     try:
         with connection.cursor() as cursor:
             
-            print(email)
             user=(" SELECT  ID from Customer where EMAIL =(%s)")
             cursor.execute(user,[email])
             query_results = cursor.fetchall()
@@ -19,8 +18,6 @@ def add_to_cart(book_isbn,email,quantity):
                     "VALUES (%s, %s, %s)")
 
             cart = (user_id, book_isbn, quantity)
-
-
             cursor.execute(add_to_cart, cart)
             
     
