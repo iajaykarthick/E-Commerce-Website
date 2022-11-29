@@ -6,6 +6,7 @@ def insert_customer(fname, lname, email, gender, phone, address, zip, subscripti
     
     try:
         with connection.cursor() as cursor:
+            
             print('Inserting new customer information to CUSTOMER table')
             add_customer = ("INSERT INTO CUSTOMER "
                     "(First_Name, Last_Name, Email, Gender, Phone, Address, Zipcode, Subscription_ID, Subscription_Start_Date) "
@@ -58,3 +59,23 @@ def check_if_user_is_valid(email, password):
             return True
         
     return False
+
+
+def get_customer_id(email):
+    print(email)
+    
+    with connection.cursor() as cursor:
+        print('Getting customer_id of the user')
+        
+        select_query =  """
+                            SELECT ID
+                            FROM CUSTOMER c
+                            WHERE c.EMAIL = %(email)s
+                        """
+        
+        cursor.execute(select_query, {'email': email})
+        query_results = cursor.fetchall()
+        user_id = query_results[0][0]
+        return user_id
+        
+    return -1

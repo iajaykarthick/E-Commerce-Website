@@ -94,29 +94,30 @@ def book_detail(request, isbn):
     
     return render(request, 'books/book_detail.html', {'book': book[0]})
 
-@my_login_required
-def add_to_cart(request):
+# @my_login_required
+# def add_to_cart(request):
 
-    ## Insert into cart table 
-    email=request.session['user_id']
+#     ## Insert into cart table 
+#     email=request.session['user_id']
      
-    base_url = reverse('books:list')  # 1 /books/
-    query_string =  urlencode({'cart_added': True})  # 2 cart_added=True
-    url = '{}?{}'.format(base_url, query_string)  # /books/?cart_added=True
+#     base_url = reverse('books:list')  # 1 /books/
+#     query_string =  urlencode({'cart_added': True})  # 2 cart_added=True
+#     url = '{}?{}'.format(base_url, query_string)  # /books/?cart_added=True
 
-    return render(request, 'books/cart.html', {})
-    #return redirect(url)
+#     return render(request, 'books/cart.html', {})
+#     #return redirect(url)
     
 
 
 @my_login_required
 def get_cart_details(request):
-
+    
+    context = {}
     ## Insert into cart table 
-    email=request.session['user_id']
-    cart_details=db.cart_details(email)
-    print("Printing the cart details")
-    for i in cart_details:
-        print(i)
-    return render(request, 'books/cart.html', {})
+    user_id = request.session['user_id']
+    cart_details=db.cart_details(user_id)
+
+    context['items'] = cart_details
+    context['count_items'] = len(cart_details)
+    return render(request, 'books/cart.html', context)
     #return redirect(url)

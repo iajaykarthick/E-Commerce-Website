@@ -49,6 +49,7 @@ def register_user(request):
 
 def login_user(request):
     context = {'error_msg': ''}
+    
     if request.method == 'POST':
         print(f'Request is {request.POST["email"]}')
         print(f'Request is {request.POST["password"]}')
@@ -57,11 +58,16 @@ def login_user(request):
         pwd = request.POST.get('password')
         
         if db.check_if_user_is_valid(email, pwd):
-            request.session['user_id'] = email
+            
+            user_id = db.get_customer_id(email)
+            if user_id != -1:
+                request.session['user_id'] = user_id
+            
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
                 return redirect('books:list')
+        
         else:
             context['error_msg'] = 'Incorrect Email Address / Password'
     

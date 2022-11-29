@@ -29,21 +29,18 @@ def add_to_cart(book_isbn,email,quantity):
 
 
 
-def cart_details(email):
+def cart_details(user_id):
  
     try:
         with connection.cursor() as cursor:
             
-            user=(" SELECT  ID from Customer where EMAIL =(%s)")
-            cursor.execute(user,[email])
-            query_results = cursor.fetchall()
-            user_id = query_results[0][0]
-            print(user_id)
             print("Showing the cart of the particular customer")
-            cart_details = (f'''select c.ISBN,b.image,b.title,b.price from book b
+            cart_details = f'''
+                            select c.ISBN,b.image,b.title,c.quantity,b.price from book b
                             join cart c
                             on c.ISBN = b.ISBN
-                            where c.Customer_ID = {user_id} ''')
+                            where c.Customer_ID = {user_id} 
+                        '''
 
             cursor.execute(cart_details)
             query_results = cursor.fetchall()
