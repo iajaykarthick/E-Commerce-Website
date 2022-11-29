@@ -91,19 +91,10 @@ delimiter ;
 call books_name('walk');
 
 # 6th procedure 
-#### add to cart or update
-## input - customer id, ISBN, QTY 
-## if present update or create that row
-
-
-select count(*)
-from cart
-where customer_id = 1 and ISBN = 0002005018;
-
-desc cart;
+## Updating the cart 
 
 delimiter $$
-create procedure books_name(
+create procedure cart_update(
 	in id int, 
     in book_id varchar(10),
     in book_qty int
@@ -119,12 +110,17 @@ begin
 		insert into cart(Customer_ID, ISBN, Quantity) values(id,book_id,book_qty);
         
 	else
+		update cart 
+        set Quantity = Quantity+book_qty
+        where Customer_ID = id and ISBN = book_id;
+        
+    end if;
 
 end $$
 delimiter ;
 
-
-
+call cart_update(18,'0030096189',15);
+select * from cart;
  
 ### Functions 
 
@@ -134,13 +130,15 @@ where Customer_ID = 1
 group by Customer_ID;
 
 ## Add your your customer_id 
-insert into cart(Customer_ID, ISBN, Quantity) values(1,'0002005018',1); 
+insert into cart(Customer_ID, ISBN, Quantity) values(1,'0002005019',1); 
 insert into cart(Customer_ID, ISBN, Quantity) values(1,'0020199090',10);
 
 select * from customer;
 select * from cart;
 select * from book;
 desc cart;
+
+
 
 # Function 1 
 # Function to check the quantity of qart 
