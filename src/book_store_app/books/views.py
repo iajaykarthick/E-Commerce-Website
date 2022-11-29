@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from . import shivani_db as db
+from . import db as db
 # DB
 from django.db import connection
 
