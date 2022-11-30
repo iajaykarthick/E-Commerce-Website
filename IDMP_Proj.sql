@@ -1,3 +1,36 @@
+### Triggers 
+#Trigger for checking user does not enter more than 10 quantity.
+
+delimiter $$
+
+CREATE TRIGGER  check_quantity_max_limit  BEFORE INSERT ON CART
+
+FOR EACH ROW
+
+BEGIN
+
+IF NEW.quantity >10 THEN
+
+SIGNAL SQLSTATE '45000'
+
+SET MESSAGE_TEXT = 'ERROR:
+
+         Max BookQuantity MUST BE 10!';
+
+END IF;
+
+END $$
+
+delimiter ;
+
+show triggers;
+
+
+select * from cart;
+
+insert into cart values(1,'0061030147',15 );
+
+
 ## 1 STored Procedure 
 # Getting book name with author 
 
@@ -57,6 +90,7 @@ delimiter ;
 
 call books_with_genre('classic');
 
+
 ## 4th procedure 
 # Getting book name year  
 
@@ -74,6 +108,7 @@ delimiter ;
 
 call books_with_year(2001);
 
+
 # 5th procedure
 ## Getting books with book name(no need whole name)
 
@@ -89,6 +124,7 @@ end $$
 delimiter ;
 
 call books_name('walk');
+
 
 # 6th procedure 
 ## Updating the cart 
@@ -123,8 +159,6 @@ call cart_update(18,'0030096189',15);
 select * from cart;
  
 ### Functions 
-
-
 
 ## Add your your customer_id 
 insert into cart(Customer_ID, ISBN, Quantity) values(1,'0002005019',1); 
@@ -181,12 +215,6 @@ select login('knihiw','hh');
 ## Function 3
 ## To get total cart value 
 
-select sum(c.Quantity *b.price) 
-from cart c
-join book b on b.ISBN = c.ISBN
-where c.Customer_ID = 1
-group by c.Customer_ID;
-
 delimiter $$
 create function cart_total_charge(id int)
 returns int 
@@ -214,108 +242,57 @@ select * from customer;
 
 select * from book where ISBN = '0030096189';
 
-## Function 
 
--- delimiter $$
--- create procedure newcustomer(
--- in fname varchar(20),
--- in lname varchar(20),
--- in email_id varchar(80),
--- in gen varchar(15),
--- in ph char(12),
--- in address varchar(30),
--- in zipcode char(7),
--- in subid int,
--- out output varchar(100)
--- )
--- begin 
+### Procedure to increase the cart value by one 
+# Increasing elements in cart 
 
--- # checking if email exist's  
--- 	declare login_validity int;
---     
---     select count(*) into login_validity
--- 	from customer
--- 	where customer.Email = email_id;
---     
---     if login_validity < 1 then
--- 		INSERT INTO customer values (fname, lname, email_id, gen, ph, address, zipcode, subid, now());
---         
--- 		set output = 'Account created Successfully';	
---         
---     else
--- 		set output = 'There was some error creating the account';
---         
---     end if;
---         
--- end $$
--- delimiter ;
+delimiter $$
+create procedure inc_qty(
+cid int,
+book_isbn varchar(10))
 
--- INSERT INTO customer 
--- (First_Name, Last_Name, Email, Gender, Phone, Address, Zipcode, Subscription_ID, Subscription_Start_Date) 
--- VALUES (fname, lname, email_id, gen, ph, address, zipcode, subid, now());
+begin 
+	declare no_of_copies int;
+    
+	select Quantity into no_of_copies
+	from cart
+	where Customer_ID = cid and ISBN = book_isbn;
+    
+	UPDATE cart
+	SET Quantity = no_of_copies + 1
+	WHERE Customer_ID = cid and ISBN = book_isbn;
+	
+end $$
+delimiter ;
 
+call inc_qty(1,'0002005018');
+select * from cart;
 
-
-
-### 3rd Function 
+### Procedure to decrease the quantity by 1 of book
 # Increasing or decreasing elements in cart 
 
--- delimiter $$
--- create function inc_qty(cid int,book_isbn char(10))
--- returns varchar(100)
--- deterministic 
--- begin 
--- 	declare no_of_copies int;
---     declare add_copies int;
---     declare note varchar(100);
---     
--- 	select Quantity into no_of_copies
--- 	from cart
--- 	where Customer_ID = cid;
---     
--- 	set add_copies = no_of_copies + 1;
--- 	UPDATE cart
--- 	SET Quantity = add_copies
--- 	WHERE Customer_ID = cid ;
--- 	set note = 'Increased by 1';
---     
---     return note;
---     
--- end $$
--- delimiter ;
+delimiter $$
+create procedure dec_qty(
+cid int,
+book_isbn varchar(10))
 
--- select inc_qty(1,'0002005018');
+begin 
+	declare no_of_copies int;
+    
+	select Quantity into no_of_copies
+	from cart
+	where Customer_ID = cid and ISBN = book_isbn;
+    
+	UPDATE cart
+	SET Quantity = no_of_copies - 1
+	WHERE Customer_ID = cid and ISBN = book_isbn;
+	
+end $$
+delimiter ;
 
-### 4th Function 
-# Increasing or decreasing elements in cart 
-
--- delimiter $$
--- create function dec_qty(cid int,book_isbn char(10))
--- returns varchar(100)
--- deterministic 
--- begin 
--- 	declare no_of_copies int;
---     declare remove_copies int;
---     declare note varchar(100);
---     
--- 	select Quantity into no_of_copies
--- 	from cart
--- 	where Customer_ID = cid;
---     
--- 	set remove_copies = no_of_copies - 1;
--- 	UPDATE cart
--- 	SET Quantity = remove_copies
--- 	WHERE Customer_ID = cid ;
--- 	set note = 'Descreased by 1';
---     
---     return note;
---     
--- end $$
--- delimiter ;
-
--- select dec_qty(1,'0002005018');
-
--- select * from cart;
+call dec_qty(1,'0002005018');
+select @val;
+select * from cart;
 
 
 ## 7th Procedure
@@ -367,18 +344,43 @@ where title = 'Clara Callan';
 select * from store
 where zipcode = '02130';
 
-select * from zipcode;
-select * from store_copies;
+## 8th Procedure 
+#### Procedure to get the locaions of the store based on the user location 
+## This will give us store id of the 10 store present in that state.
 
-select *
-from customer c
-join zipcode z on z.zipcode = c.zipcode
-join store s on s.zipcode = c.zipcode;
+delimiter $$
+create procedure store_location(
+	in cid int
+)
+begin 
 
+	with customer_details as (select z.State
+							  from customer c 
+							  join zipcode z 
+							  on z.zipcode = c.zipcode
+							  where c.id = cid), # here you should give id of the customer.
 
+	store_details as (select z.zipcode, s.store_id, s.Store_Address,z.city, z.state
+					  from store s 
+					  join zipcode z 
+					  on z.zipcode = s.zipcode
+					  join customer_details cd 
+					  on cd.state = z.state)
 
-
-
+	select z.zipcode, s.store_id, s.Store_Address ,z.City, z.State
+    from customer c 
+    join zipcode z 
+    on z.zipcode = c.zipcode
+    join store s on s.Zipcode= z.zipcode
+    where c.id = cid
     
+	union 
     
+	select * from store_details 
+	order by store_id
+	limit 9;
+    
+end $$
+delimiter ;
 
+call store_location(18);
