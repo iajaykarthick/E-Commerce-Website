@@ -124,26 +124,17 @@ select * from cart;
  
 ### Functions 
 
-select sum(Quantity) 
-from cart
-where Customer_ID = 1
-group by Customer_ID;
+
 
 ## Add your your customer_id 
 insert into cart(Customer_ID, ISBN, Quantity) values(1,'0002005019',1); 
 insert into cart(Customer_ID, ISBN, Quantity) values(1,'0020199090',10);
 
-select * from customer;
-select * from cart;
-select * from book;
-desc cart;
-
-
 
 # Function 1 
 # Function to check the quantity of qart 
 delimiter $$ 
-create function cart_total(cid int)
+create function cart_total_qty(cid int)
 returns int 
 deterministic
 begin
@@ -160,10 +151,11 @@ begin
 end $$
 delimiter ;
 
-select cart_total(18);
+select cart_total_qty(18);
 
 
-## Function 1 
+## Function 2
+## Function to check login 
 delimiter $$
 create function login(email_id varchar(80),pass varchar(100))
 returns int 
@@ -184,120 +176,149 @@ delimiter ;
     
 select login('nikhiln.kudupudi@gmail.com' ,'bik');
 
-select login('knihiw','hh')
+select login('knihiw','hh');
 
+## Function 3
+## To get total cart value 
 
-
-## Function 2
+select sum(c.Quantity *b.price) 
+from cart c
+join book b on b.ISBN = c.ISBN
+where c.Customer_ID = 1
+group by c.Customer_ID;
 
 delimiter $$
-create function newcustomer(
-fname varchar(20),
-lname varchar(20),
-email_id varchar(80),
-gen varchar(15),
-ph char(12),
-address varchar(30),
-zipcode char(7),
-subid int
-)
-returns varchar(100)
+create function cart_total_charge(id int)
+returns int 
 deterministic 
 begin 
-
-# checking if email exist's  
-	declare login_validity int;
-    declare output varchar(100);
+	declare cart_total int;
     
-    select count(*) into login_validity
-	from customer
-	where customer.Email = email_id;
+	select sum(c.Quantity * b.price) into cart_total
+	from cart c
+	join book b on b.ISBN = c.ISBN
+	where c.Customer_ID = id
+	group by c.Customer_ID;
     
-    if login_validity < 1 then
-		INSERT INTO CUSTOMER 
-		(First_Name, Last_Name, Email, Gender, Phone, Address, Zipcode, Subscription_ID, Subscription_Start_Date) 
-		VALUES (fname, lname, email_id, gen, ph, address, zipcode, subid, now());
-		set output = 'Account created Successfully';	
-        
-    else
-		set output = 'There was some error creating the account';
-    end if;
-    
-    return output;
+    return cart_total;
     
 end $$
 delimiter ;
 
-select newcustomer('Nhfffh', 'Kgggd', 'nikhiln.kudupudi@gmail.com', 'male', '546-697-8889', '445 dat', '02130', '2');
-select newcustomer('Nhfffh', 'Kgggd', 'nikka@yaho.com', 'male', '546-697-8889', '445 dat', '02130', '2');
-select newcustomer('gggg','fsdsdf','@gmail','male', '540-657-9989', '445 dat', '02130', '2');
-select newcustomer('nikhi','kudu','knikhilrao@gmail.com','male', '857-445-9989', '126 day', '02130', '3');
+select cart_total_charge(1);
+
+select *,cart_total_charge(ID)
+from customer;
 
 select * from customer;
-desc customer;
+
+select * from book where ISBN = '0030096189';
+
+## Function 
+
+-- delimiter $$
+-- create procedure newcustomer(
+-- in fname varchar(20),
+-- in lname varchar(20),
+-- in email_id varchar(80),
+-- in gen varchar(15),
+-- in ph char(12),
+-- in address varchar(30),
+-- in zipcode char(7),
+-- in subid int,
+-- out output varchar(100)
+-- )
+-- begin 
+
+-- # checking if email exist's  
+-- 	declare login_validity int;
+--     
+--     select count(*) into login_validity
+-- 	from customer
+-- 	where customer.Email = email_id;
+--     
+--     if login_validity < 1 then
+-- 		INSERT INTO customer values (fname, lname, email_id, gen, ph, address, zipcode, subid, now());
+--         
+-- 		set output = 'Account created Successfully';	
+--         
+--     else
+-- 		set output = 'There was some error creating the account';
+--         
+--     end if;
+--         
+-- end $$
+-- delimiter ;
+
+-- INSERT INTO customer 
+-- (First_Name, Last_Name, Email, Gender, Phone, Address, Zipcode, Subscription_ID, Subscription_Start_Date) 
+-- VALUES (fname, lname, email_id, gen, ph, address, zipcode, subid, now());
+
+
+
 
 ### 3rd Function 
 # Increasing or decreasing elements in cart 
 
-delimiter $$
-create function inc_qty(cid int,book_isbn char(10))
-returns varchar(100)
-deterministic 
-begin 
-	declare no_of_copies int;
-    declare add_copies int;
-    declare note varchar(100);
-    
-	select Quantity into no_of_copies
-	from cart
-	where Customer_ID = cid;
-    
-	set add_copies = no_of_copies + 1;
-	UPDATE cart
-	SET Quantity = add_copies
-	WHERE Customer_ID = cid ;
-	set note = 'Increased by 1';
-    
-    return note;
-    
-end $$
-delimiter ;
+-- delimiter $$
+-- create function inc_qty(cid int,book_isbn char(10))
+-- returns varchar(100)
+-- deterministic 
+-- begin 
+-- 	declare no_of_copies int;
+--     declare add_copies int;
+--     declare note varchar(100);
+--     
+-- 	select Quantity into no_of_copies
+-- 	from cart
+-- 	where Customer_ID = cid;
+--     
+-- 	set add_copies = no_of_copies + 1;
+-- 	UPDATE cart
+-- 	SET Quantity = add_copies
+-- 	WHERE Customer_ID = cid ;
+-- 	set note = 'Increased by 1';
+--     
+--     return note;
+--     
+-- end $$
+-- delimiter ;
 
-select inc_qty(1,'0002005018');
+-- select inc_qty(1,'0002005018');
 
 ### 4th Function 
 # Increasing or decreasing elements in cart 
 
-delimiter $$
-create function dec_qty(cid int,book_isbn char(10))
-returns varchar(100)
-deterministic 
-begin 
-	declare no_of_copies int;
-    declare remove_copies int;
-    declare note varchar(100);
-    
-	select Quantity into no_of_copies
-	from cart
-	where Customer_ID = cid;
-    
-	set remove_copies = no_of_copies - 1;
-	UPDATE cart
-	SET Quantity = remove_copies
-	WHERE Customer_ID = cid ;
-	set note = 'Descreased by 1';
-    
-    return note;
-    
-end $$
-delimiter ;
+-- delimiter $$
+-- create function dec_qty(cid int,book_isbn char(10))
+-- returns varchar(100)
+-- deterministic 
+-- begin 
+-- 	declare no_of_copies int;
+--     declare remove_copies int;
+--     declare note varchar(100);
+--     
+-- 	select Quantity into no_of_copies
+-- 	from cart
+-- 	where Customer_ID = cid;
+--     
+-- 	set remove_copies = no_of_copies - 1;
+-- 	UPDATE cart
+-- 	SET Quantity = remove_copies
+-- 	WHERE Customer_ID = cid ;
+-- 	set note = 'Descreased by 1';
+--     
+--     return note;
+--     
+-- end $$
+-- delimiter ;
 
-select dec_qty(1,'0002005018');
+-- select dec_qty(1,'0002005018');
 
-select * from cart;
+-- select * from cart;
 
 
-
+## 7th Procedure
 # procedure to delete row from cart (removing product from cart)
 # tried function but not giving proper output 
 
@@ -342,6 +363,22 @@ ON bg.GENRE_ID = g.GENRE_ID;
 
 select * from some_view
 where title = 'Clara Callan';
+
+select * from store
+where zipcode = '02130';
+
+select * from zipcode;
+select * from store_copies;
+
+select *
+from customer c
+join zipcode z on z.zipcode = c.zipcode
+join store s on s.zipcode = c.zipcode;
+
+
+
+
+
     
     
 
