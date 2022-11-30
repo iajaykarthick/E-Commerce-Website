@@ -21,15 +21,13 @@ def book_list(request):
     
     cart_added = False
     cursor = connection.cursor()
-    
+    user_id= request.session['user_id']
     if request.method == 'POST':
         print(f'Request is {request.POST}')
-            
         isbn = request.POST['ISBN']
         
         ## Insert into cart table 
-        email= request.session['user_id']
-        result = db.add_to_cart(isbn,email, 1)
+        result = db.add_to_cart(isbn, user_id, 1)
         if result == 1:
             cart_added = True
         
@@ -57,7 +55,7 @@ def book_list(request):
          'books_list':books_list,
          'books': books,
          'request': request,
-         'cart_count': 10,
+         'cart_count': db.countCart(user_id),
          'added': cart_added
     }
     
@@ -111,13 +109,19 @@ def book_detail(request, isbn):
 
 @my_login_required
 def get_cart_details(request):
-    
-    context = {}
-    ## Insert into cart table 
+    print(request.method)
     user_id = request.session['user_id']
+    if request.method == 'POST':
+        
+        isbn = request.POST['ISBN']
+        db.deleteCartItem(user_id, isbn)
+    context = {}
+
+
     cart_details=db.cart_details(user_id)
 
     context['items'] = cart_details
     context['count_items'] = len(cart_details)
+    context['cart_count'] = db.countCart(user_id)
+    context['total_cost'] = db.getTotalCartCost(user_id)
     return render(request, 'books/cart.html', context)
-    #return redirect(url)

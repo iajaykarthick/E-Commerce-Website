@@ -13,3 +13,9 @@ function alertFunc() {
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
+
+  function deleteCartItem(isbn) {
+    console.log(`${isbn}`)
+    document.getElementById(`deleteCartItemForm_${isbn}`).submit();
+    console.log("Hello world!");
+  }
