@@ -124,15 +124,15 @@ def book_detail(request, isbn):
 def get_cart_details(request):
     print(request.method)
     user_id = request.session['user_id']
+    print("USER ID",user_id)
     if request.method == 'POST':
         
         isbn = request.POST['ISBN']
         db.deleteCartItem(user_id, isbn)
     context = {}
 
-
     cart_details=db.cart_details(user_id)
-
+    db.add_order_items(user_id)
     context['items'] = cart_details
     context['count_items'] = len(cart_details)
     context['cart_count'] = db.countCart(user_id)

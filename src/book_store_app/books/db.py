@@ -28,7 +28,7 @@ def add_to_cart(book_isbn, user_id, quantity):
 def countCart(user_id):
     try:
         with connection.cursor() as cursor:
-            cart_total = (" SELECT cart_total(%s)")
+            cart_total = (" SELECT cart_total_qty(%s)")
             cursor.execute(cart_total,[user_id])
             query_results = cursor.fetchall()
             count_cart = query_results[0][0]
@@ -63,12 +63,12 @@ def cart_details(user_id):
         with connection.cursor() as cursor:
             
             print("Showing the cart of the particular customer")
-            cart_details = f'''
+            cart_details = (f'''
                             select c.ISBN,b.image,b.title,c.quantity,b.price from book b
                             join cart c
                             on c.ISBN = b.ISBN
                             where c.Customer_ID = {user_id} 
-                        '''
+                        ''')
 
             cursor.execute(cart_details)
             query_results = cursor.fetchall()
@@ -83,6 +83,29 @@ def cart_details(user_id):
         return -1
     return cart
 
+def add_order_items(user_id):
+ 
+    try:
+        with connection.cursor() as cursor:
+            print("Moving items from cart to order ")
+            order_insert = (f'''insert into ORDERS(Customer_ID,Total_Price,Payment_ID)
+                                select c.Customer_ID,sum(c.quantity * b.price),1
+                                from CART c
+                                join Book b on c.ISBN=b.ISBN
+                                where c.Customer_ID= {user_id} ''')
+
+            cursor.execute(order_insert)
+            cart_delete = (f'''delete from cart where Customer_ID= {user_id} ''')
+
+            cursor.execute(cart_delete)
+            query_results = cursor.fetchall()
+            
+    
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
+    return 1
 
 def deleteCartItem(user_id, isbn):
     try:
