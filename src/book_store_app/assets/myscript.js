@@ -17,5 +17,8 @@ function alertFunc() {
   function deleteCartItem(isbn) {
     console.log(`${isbn}`)
     document.getElementById(`deleteCartItemForm_${isbn}`).submit();
-    console.log("Hello world!");
+  }
+
+  function addToCartFunc(){
+    document.getElementById(`addToCart`).submit();
   }

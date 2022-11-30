@@ -64,7 +64,16 @@ def book_list(request):
     
 @my_login_required
 def book_detail(request, isbn):
-    
+    cart_added = False
+    user_id= request.session['user_id']
+    if request.method == 'POST':
+        isbn = request.POST['ISBN']
+        quantity = int(request.POST['quantity']) or 1
+        print(quantity)
+        ## Insert into cart table 
+        result = db.add_to_cart(isbn, user_id, quantity)
+        if result == 1:
+            cart_added = True
     cursor = connection.cursor()
     cursor.execute(f'''
                     SELECT b.*, a.Author_Name, g.Genre 
@@ -90,7 +99,11 @@ def book_detail(request, isbn):
     book[0]['author'] = ', '.join(authors)
     book[0]['genres'] = ', '.join(genres)
     
-    return render(request, 'books/book_detail.html', {'book': book[0]})
+    return render(request, 'books/book_detail.html', {
+                                                    'book': book[0],
+                                                    'cart_count': db.countCart(user_id),
+                                                    'added': cart_added
+                                                    })
 
 # @my_login_required
 # def add_to_cart(request):
