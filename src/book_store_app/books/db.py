@@ -93,8 +93,9 @@ def add_order_items(user_id):
                                 from CART c
                                 join Book b on c.ISBN=b.ISBN
                                 where c.Customer_ID= {user_id} ''')
-
+            
             cursor.execute(order_insert)
+            print("Deleteing")
             cart_delete = (f'''delete from cart where Customer_ID= {user_id} ''')
 
             cursor.execute(cart_delete)
@@ -112,7 +113,7 @@ def deleteCartItem(user_id, isbn):
         with connection.cursor() as cursor:
             
             print("Deleting Particular cart item from user's cart")
-            args = [user_id, isbn, 0]
+            args = (user_id, isbn, 0)
             result_args = cursor.callproc('delete_book_cart', args)
             print(result_args)
             

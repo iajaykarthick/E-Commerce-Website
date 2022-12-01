@@ -215,12 +215,13 @@
                         <p class="mb-2">${{total_cost|add:20|stringformat:".2f"}}</p>
                       </div>
   
-                      <button type="button" class="btn btn-info btn-block btn-lg">
+                        <a href="{% url 'books:order'%}" type="button" class="btn btn-info btn-block btn-lg" >
+                
                         <div class="d-flex justify-content-between">
                           {% comment %} <span>${{total_cost|add:20|stringformat:".2f"}}</span> {% endcomment %}
                           <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                         </div>
-                      </button>
+                      </a>
   
                     </div>
                   </div>

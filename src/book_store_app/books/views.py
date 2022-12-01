@@ -132,9 +132,18 @@ def get_cart_details(request):
     context = {}
 
     cart_details=db.cart_details(user_id)
-    db.add_order_items(user_id)
+   
     context['items'] = cart_details
     context['count_items'] = len(cart_details)
     context['cart_count'] = db.countCart(user_id)
     context['total_cost'] = db.getTotalCartCost(user_id)
     return render(request, 'books/cart.html', context)
+
+
+def customer_checkout(request):
+     user_id = request.session['user_id']
+     print("USER ID",user_id)
+  
+     db.add_order_items(user_id)
+
+     return render(request, 'books/order.html')
