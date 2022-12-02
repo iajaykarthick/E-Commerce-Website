@@ -48,9 +48,9 @@ def book_list(request):
     cursor.execute('''
                     SELECT B.*, C.QUANTITY 
                     FROM BOOK B 
-                    LEFT JOIN (SELECT * FROM CART WHERE CUSTOMER_ID = 1001) C
+                    LEFT JOIN (SELECT * FROM CART WHERE CUSTOMER_ID = %(user_id)s) C
                     ON B.ISBN = C.ISBN;
-                   ''')
+                   ''', {'user_id' : user_id})
 
     query_results = cursor.fetchall()
     
