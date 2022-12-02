@@ -1,18 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
 
+      {% if 'user_id' in request.session%}
+        <li class="navbar-nav">
+          <select class="form-select mb-0" aria-label="Select Store">
+            <option selected>Select Book Store</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </li>
+      {% else %}
+        <a class="navbar-brand" href="{% url 'accounts:home'%}">Book Store</a>
+      {% endif %}
+      
 
-
-      <li class="navbar-nav">
-        <select class="form-select mb-0" aria-label="Select Store">
-          <option selected>Select Book Store</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </li>
-
-      {% comment %} <a class="navbar-brand" href="{% url 'accounts:home'%}">Book Store</a> {% endcomment %}
+      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
