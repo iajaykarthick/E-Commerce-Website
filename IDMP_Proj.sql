@@ -175,7 +175,7 @@ BEGIN
     SET p_id := LAST_INSERT_ID();
     
     INSERT INTO ORDERS(Customer_ID, Total_Price, Payment_ID)
-	SELECT c.CUSTOMER_ID, sum(c.quantity * b.price), @payment_id
+	SELECT c.CUSTOMER_ID, sum(c.quantity * b.price) + 20, @payment_id
 	FROM CART c
 	JOIN Book b on c.ISBN=b.ISBN
 	WHERE c.CUSTOMER_ID= customer_id
@@ -196,7 +196,7 @@ BEGIN
 END $$
 delimiter ;
 
-SET SQL_SAFE_UPDATES = 0;
+SELECT SYSDATE();
 
 CALL checkout(1001, 1, @M);
  SELECT @M;
