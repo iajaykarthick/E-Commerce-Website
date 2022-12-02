@@ -22,3 +22,11 @@ function alertFunc() {
   function addToCartFunc(){
     document.getElementById(`addToCart`).submit();
   }
+
+
+  function increment(quantity_id) {
+    document.getElementById(`quantity_${quantity_id}`).stepUp();
+ }
+ function decrement(quantity_id) {
+    document.getElementById(`quantity_${quantity_id}`).stepDown();
+ }

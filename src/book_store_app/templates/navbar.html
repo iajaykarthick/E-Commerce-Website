@@ -20,9 +20,24 @@
 
         <a href="{% url 'books:cart'%}"><i class="fa badge fa-lg" value={{cart_count}}>&#xf07a;</i></a>
 
+
+        <!-- Example single danger button -->
+        <div class="dropdown" style="padding-right: 1rem;">
+          <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user-circle"> Profile</i>
+          </a>
+        
+          <ul class="dropdown-menu">
+            {% comment %} <li><a class="dropdown-item" href="#">Settings</a></li> {% endcomment %}
+            <li><a class="dropdown-item" href="{% url 'orders:view_orders' %}">View Orders</a></li>
+            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a></li>
+          </ul>
+        </div>
+       
+{% comment %} 
         <form action="{% url 'accounts:logout' %}">
          <input type="submit" class="btn btn-outline-primary" value="Logout">
-        </form>
+        </form> {% endcomment %}
         {% endif %}
 
       </div>

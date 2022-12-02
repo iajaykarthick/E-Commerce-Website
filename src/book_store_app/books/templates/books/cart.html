@@ -26,8 +26,6 @@
                     </div>
                   </div>
                   
-                  
-
                     {% for item in items %}
                         <div class="card mb-3">
                             <div class="card-body">
@@ -147,6 +145,8 @@
                   </div> {% endcomment %}
   
                 </div>
+
+                {%if count_items > 0%}
                 <div class="col-lg-5">
   
                   <div class="card bg-primary text-white rounded-3">
@@ -215,7 +215,7 @@
                         <p class="mb-2">${{total_cost|add:20|stringformat:".2f"}}</p>
                       </div>
   
-                        <a href="{% url 'books:order'%}" type="button" class="btn btn-info btn-block btn-lg" >
+                        <a href="{% url 'orders:confirmation'%}" type="button" class="btn btn-info btn-block btn-lg" >
                 
                         <div class="d-flex justify-content-between">
                           {% comment %} <span>${{total_cost|add:20|stringformat:".2f"}}</span> {% endcomment %}
@@ -227,6 +227,7 @@
                   </div>
   
                 </div>
+                {% endif %}
   
               </div>
   

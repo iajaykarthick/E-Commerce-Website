@@ -6,7 +6,7 @@
 
 
      <!-- The actual snackbar -->
-     <div id="snackbar">Added to cart</div>
+     <div id="snackbar">{{alert_msg}}</div>
   
     {% if added %}
       <script>
@@ -27,8 +27,12 @@
             <div class="mt-auto">
                 <form action="" method="post">
                   {% csrf_token %}
-                  <input type="hidden" name="ISBN" value="{{book.ISBN}}" class="book_id">
-                    <input type="submit" class="btn btn-outline-dark" style="float:left;" value="Add to Cart" />
+                  <input type="hidden" name="ISBN" value="{{book.ISBN}}">
+                  <input type="hidden" name="current_quantity" value="{{book.Quantity}}">
+                  <input id="{{"quantity_"|add:book.ISBN}}" name="quantity" type="number" value="{{book.Quantity|default_if_none:0}}" min=0 max=10>
+                  <button type="button" onclick="increment('{{book.ISBN}}')">+</button>
+                  <button type="button" onclick="decrement('{{book.ISBN}}')">-</button>
+                  <input type="submit" class="btn btn-outline-dark" style="float:left;" value="Add to Cart" />
                 </form>
 
                 <a href="{% url 'books:detail' book.ISBN %}" class="btn btn-outline-primary">View</a>

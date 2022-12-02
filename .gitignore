@@ -31,3 +31,4 @@ media
 
 # Shell script to create and insert db tables
 database/load_data.sh
+database/data/tables_dump.sql

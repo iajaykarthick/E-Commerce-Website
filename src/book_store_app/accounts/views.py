@@ -12,7 +12,6 @@ def home(request):
     return HttpResponse('<h1>Hello World!</h1>')
 
 def redirect_view(request):
-    
     response = redirect('accounts:login')
     return response
 
@@ -50,6 +49,9 @@ def register_user(request):
 def login_user(request):
     context = {'error_msg': ''}
     
+    if 'user_id' in request.session:
+        return redirect('books:list')
+    
     if request.method == 'POST':
         print(f'Request is {request.POST["email"]}')
         print(f'Request is {request.POST["password"]}')
@@ -70,7 +72,7 @@ def login_user(request):
         
         else:
             context['error_msg'] = 'Incorrect Email Address / Password'
-    
+        
     return render(request,'accounts/login.html', context)
 
 def logout_user(request):

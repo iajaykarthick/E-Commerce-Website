@@ -1,0 +1,54 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<section class="h-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <h3>Orders Placed</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Book</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Shipping</th>
+                <th scope="col">Total Price Paid</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+                {% for order_item in order %}
+                <tr>
+                    {% if order_item.span is not None%}
+                        <td  style="vertical-align : middle;text-align:center;" rowspan="{{order_item.span}}">{{order_item.order_id}}</th>
+                    {% endif %}
+                    
+                    <td>{{order_item.title}}</td>
+                    <td>{{order_item.order_date}}</td>
+                    <td>{{order_item.quantity}}</td>
+                    <td>${{order_item.item_total_price}}</td>
+                    <td>$20.00</td>
+                    {% if order_item.span is not None%}
+                        <td  style="vertical-align : middle;text-align:center;" rowspan="{{order_item.span}}">${{order_item.total_price}}</th>
+                    {% endif %}
+                    
+                    {% comment %} <td><img src="https://static.toiimg.com/thumb/msid-77503359,imgsize-228684,width-800,height-600,resizemode-75/77503359.jpg" alt="" height=50 width=50></img></td> {% endcomment %}
+                </tr>
+                {% endfor %}
+            {% endfor %}
+            {% comment %} <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr> {% endcomment %}
+            </tbody>
+        </table>
+    </div>
+</section>
+  {% endblock %}

@@ -128,7 +128,7 @@ call books_name('walk');
 
 # 6th procedure 
 ## Updating the cart 
-
+DROP PROCEDURE IF EXISTS cart_update;
 delimiter $$
 create procedure cart_update(
 	in id int, 
@@ -147,7 +147,7 @@ begin
         
 	else
 		update cart 
-        set Quantity = Quantity+book_qty
+        set Quantity = book_qty
         where Customer_ID = id and ISBN = book_id;
         
     end if;
@@ -157,7 +157,49 @@ delimiter ;
 
 call cart_update(18,'0030096189',15);
 select * from cart;
- 
+
+
+## PROCEDURE TO INSERT PAYMENT, ORDER INFORMATION
+
+DROP PROCEDURE IF EXISTS checkout;
+delimiter $$
+CREATE PROCEDURE checkout(
+	in customer_id int, 
+    in payment_type int,
+    out p_id int
+)
+BEGIN
+    
+    INSERT INTO PAYMENT(PAYMENT_TYPE) VALUES(payment_type);
+    SET @payment_id = LAST_INSERT_ID();
+    SET p_id := LAST_INSERT_ID();
+    
+    INSERT INTO ORDERS(Customer_ID, Total_Price, Payment_ID)
+	SELECT c.CUSTOMER_ID, sum(c.quantity * b.price), @payment_id
+	FROM CART c
+	JOIN Book b on c.ISBN=b.ISBN
+	WHERE c.CUSTOMER_ID= customer_id
+    GROUP BY c.CUSTOMER_ID;
+    
+    SET @order_id = LAST_INSERT_ID();
+    
+	INSERT INTO ORDER_ITEMS
+	SELECT @order_id, c.ISBN, c.quantity
+	FROM CART c
+	WHERE c.Customer_ID= customer_id; 
+    
+    
+    
+	DELETE FROM cart where Customer_ID = customer_id;
+    
+    
+END $$
+delimiter ;
+
+SET SQL_SAFE_UPDATES = 0;
+
+CALL checkout(1001, 1, @M);
+ SELECT @M;
 ### Functions 
 
 ## Add your your customer_id 

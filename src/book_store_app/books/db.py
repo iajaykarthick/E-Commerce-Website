@@ -6,7 +6,7 @@ def add_to_cart(book_isbn, user_id, quantity):
  
     try:
         with connection.cursor() as cursor:
-            print("Inserting the customer id, isbn of the book they added to cart ")
+            
             # add_to_cart = ("INSERT INTO Cart "
             #         "(Customer_ID, ISBN, Quantity) "
             #         "VALUES (%s, %s, %s)")
@@ -14,7 +14,7 @@ def add_to_cart(book_isbn, user_id, quantity):
             # cart = (user_id, book_isbn, quantity)
             # cursor.execute(add_to_cart, cart)
             
-            print("Deleting Particular cart item from user's cart")
+            print("Updating Particular cart item from user's cart")
             args = [user_id, book_isbn, quantity]
             result_args = cursor.callproc('cart_update', args)
             print(result_args)
@@ -83,30 +83,6 @@ def cart_details(user_id):
         return -1
     return cart
 
-def add_order_items(user_id):
- 
-    try:
-        with connection.cursor() as cursor:
-            print("Moving items from cart to order ")
-            order_insert = (f'''insert into ORDERS(Customer_ID,Total_Price,Payment_ID)
-                                select c.Customer_ID,sum(c.quantity * b.price),1
-                                from CART c
-                                join Book b on c.ISBN=b.ISBN
-                                where c.Customer_ID= {user_id} ''')
-            
-            cursor.execute(order_insert)
-            print("Deleteing")
-            cart_delete = (f'''delete from cart where Customer_ID= {user_id} ''')
-
-            cursor.execute(cart_delete)
-            query_results = cursor.fetchall()
-            
-    
-    except IntegrityError as e:
-        print("Error occurred")
-        print(e)
-        return -1
-    return 1
 
 def deleteCartItem(user_id, isbn):
     try:
