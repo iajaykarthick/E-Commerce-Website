@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import db
 from books import db as books_db
 import random
@@ -13,8 +13,16 @@ app_name = 'orders'
 @my_login_required
 def confirmation(request):
     user_id = request.session['user_id']
-
     payment_id = db.add_order_items(user_id)
+    response = redirect('orders:view_order_receipt', payment_id)
+    return response
+    
+
+
+@my_login_required
+def view_order_receipt(request, payment_id):
+    
+    user_id = request.session['user_id']
     
     order_items = db.getOrderDetail(payment_id)
     
@@ -25,13 +33,14 @@ def confirmation(request):
         order_date = order_items[0]['ORDER_DATE']
         total_price = order_items[0]['TOTAL_PRICE']
         total_price_without_shipping = order_items[0]['TOTAL_PRICE'] - 20
+        payment_type = order_items[0]['PAYMENT_TYPE']
     else:
         name = None
         total_price = None
         order_id = None
         order_date = None
         total_price_without_shipping = None
-    
+        payment_type = None
     
         
     
@@ -44,8 +53,10 @@ def confirmation(request):
         'total_price_without_shipping': total_price_without_shipping,
         'order_items': order_items,
         'cart_count': books_db.countCart(user_id),
+        'payment_type': payment_type
     }
     return render(request, 'orders/order.html', context)
+    
 
 @my_login_required
 def view_orders(request):

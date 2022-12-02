@@ -57,8 +57,8 @@ def getTotalCartCost(user_id):
 
     return total_cost or 0
 
-def cart_details(user_id):
- 
+def cart_details(user_id, sort=False, asc=True):
+
     try:
         with connection.cursor() as cursor:
             
@@ -69,6 +69,15 @@ def cart_details(user_id):
                             on c.ISBN = b.ISBN
                             where c.Customer_ID = {user_id} 
                         ''')
+            if sort:
+                cart_details += " ORDER BY b.price * c.quantity"
+                if asc == False:
+                    cart_details += " DESC"
+                else:
+                    cart_details += " ASC"
+                    
+            
+            print(cart_details)
 
             cursor.execute(cart_details)
             query_results = cursor.fetchall()

@@ -26,7 +26,12 @@ def getOrderDetail(payment_id):
         with connection.cursor() as cursor:
             print("Getting Order Details")
             select_query = """
-                            SELECT CONCAT(C.FIRST_NAME, ' ', C.LAST_NAME) AS NAME, O.ORDER_ID, O.TOTAL_PRICE, DATE_FORMAT(O.ORDER_DATE, '%%m/%%d/%%Y') AS ORDER_DATE, OI.ISBN, OI.NUMBER_OF_COPIES as quantity, B.title, B.image, (b.price * OI.NUMBER_OF_COPIES) as item_total_price
+                            SELECT CONCAT(C.FIRST_NAME, ' ', C.LAST_NAME) AS NAME, O.ORDER_ID, O.TOTAL_PRICE, DATE_FORMAT(O.ORDER_DATE, '%%m/%%d/%%Y') AS ORDER_DATE, OI.ISBN, OI.NUMBER_OF_COPIES as quantity, B.title, B.image, (b.price * OI.NUMBER_OF_COPIES) as item_total_price,
+                            CASE
+                                WHEN p.PAYMENT_TYPE = 1 THEN 'Card'
+                                WHEN p.PAYMENT_TYPE = 2 THEN 'Paypal'
+                                ELSE 'Cash On Delivery'
+                            END AS PAYMENT_TYPE
                             FROM PAYMENT P
                             JOIN ORDERS O
                             ON P.PAYMENT_ID = O.PAYMENT_ID

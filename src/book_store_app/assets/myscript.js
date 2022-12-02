@@ -30,3 +30,26 @@ function alertFunc() {
  function decrement(quantity_id) {
     document.getElementById(`quantity_${quantity_id}`).stepDown();
  }
+
+function sortbypriceformsubmit(){
+  document.getElementById(`sortbyprice`).submit();
+ }
+ 
+
+ function disableCardForm(){
+
+  document.getElementById("typeName").disabled = true;
+  document.getElementById("typeExp").disabled = true;
+  document.getElementById("typeText_1").disabled = true;
+  document.getElementById("typeText_2").disabled = true;
+
+ }
+
+ function enableCardForm(){
+
+  document.getElementById("typeName").disabled = false;
+  document.getElementById("typeExp").disabled = false;
+  document.getElementById("typeText_1").disabled = false;
+  document.getElementById("typeText_2").disabled = false;
+
+ }

@@ -135,18 +135,35 @@ def book_detail(request, isbn):
 @my_login_required
 def get_cart_details(request):
     print(request.method)
+    sort = False
+    if request.method == 'POST' and 'asc' in request.POST:
+        if request.POST['asc'] == "False":
+            asc = False
+        else:
+            asc = True
+    else:
+        asc = True
+    
     user_id = request.session['user_id']
     print("USER ID",user_id)
     if request.method == 'POST':
-        
-        isbn = request.POST['ISBN']
-        db.deleteCartItem(user_id, isbn)
+        print(request.POST)
+        action = request.POST['action']
+        if action == 'sort':            
+            sort = True
+        else:
+            isbn = request.POST['ISBN']
+            db.deleteCartItem(user_id, isbn)
+
     context = {}
 
-    cart_details=db.cart_details(user_id)
+    cart_details=db.cart_details(user_id, sort, asc)
+    print(cart_details)
    
     context['items'] = cart_details
     context['count_items'] = len(cart_details)
     context['cart_count'] = db.countCart(user_id)
     context['total_cost'] = db.getTotalCartCost(user_id)
+    context['asc'] = False if asc and 'asc' in request.POST else True
+    
     return render(request, 'books/cart.html', context)
