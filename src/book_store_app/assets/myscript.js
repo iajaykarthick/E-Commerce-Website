@@ -53,3 +53,7 @@ function sortbypriceformsubmit(){
   document.getElementById("typeText_2").disabled = false;
 
  }
+
+ function submitPaymentForm(){
+  document.getElementById(`submitPayment`).submit();
+ }

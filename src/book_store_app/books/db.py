@@ -75,9 +75,7 @@ def cart_details(user_id, sort=False, asc=True):
                     cart_details += " DESC"
                 else:
                     cart_details += " ASC"
-                    
-            
-            print(cart_details)
+
 
             cursor.execute(cart_details)
             query_results = cursor.fetchall()

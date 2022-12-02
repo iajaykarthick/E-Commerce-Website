@@ -3,12 +3,12 @@ from django.db import connection
 from django.db import IntegrityError
 
 
-def add_order_items(user_id):
+def add_order_items(user_id, payment_type):
  
     try:
         with connection.cursor() as cursor:
             print("calling checkout procedure")
-            args = (user_id, 1, 0)
+            args = (user_id, payment_type, 0)
             cursor.callproc('checkout', args)
             cursor.execute("select @_checkout_2")
             result =  cursor.fetchall()

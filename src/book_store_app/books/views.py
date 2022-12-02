@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
 from . import db as db
+from orders import db as orders_db
 # DB
 from django.db import connection
 
@@ -30,7 +31,7 @@ def book_list(request):
         new_quantity = request.POST['quantity'] 
         ## Insert into cart table 
         cart_added = True
-        if new_quantity != current_quantity:
+        if new_quantity != current_quantity and int(new_quantity) > 0:
             result = db.add_to_cart(isbn, user_id, new_quantity)
             if result == 1:
                 
@@ -151,10 +152,15 @@ def get_cart_details(request):
         action = request.POST['action']
         if action == 'sort':            
             sort = True
-        else:
+        elif action == 'delete_cart_item':
             isbn = request.POST['ISBN']
             db.deleteCartItem(user_id, isbn)
-
+        elif action == 'payment':
+            payment_type = request.POST['payment_type']
+            payment_id = orders_db.add_order_items(user_id, payment_type)
+            response = redirect('orders:view_order_receipt', payment_id)
+            return response
+            
     context = {}
 
     cart_details=db.cart_details(user_id, sort, asc)
