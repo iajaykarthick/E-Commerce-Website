@@ -1,13 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'accounts:home'%}">Book Store</a>
+
+
+
+      <li class="navbar-nav">
+        <select class="form-select mb-0" aria-label="Select Store">
+          <option selected>Select Book Store</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </li>
+
+      {% comment %} <a class="navbar-brand" href="{% url 'accounts:home'%}">Book Store</a> {% endcomment %}
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'books:list' %}">Books</a>
+            <a class="nav-link" href="{% url 'books:list' %}"> View Books</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -21,7 +33,6 @@
         <a href="{% url 'books:cart'%}"><i class="fa badge fa-lg" value={{cart_count}}>&#xf07a;</i></a>
 
 
-        <!-- Example single danger button -->
         <div class="dropdown" style="padding-right: 1rem;">
           <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-user-circle"> Profile</i>
