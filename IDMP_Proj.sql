@@ -426,3 +426,29 @@ end $$
 delimiter ;
 
 call store_location(18);
+
+
+
+## Function 4
+## To get total cart value 
+
+## input will ISBN, store_id, no of copies 
+
+delimiter $$
+create function check_copies_present(sid int, 
+book_isbn varchar(10),
+ncopies int)
+
+returns int 
+deterministic 
+begin 
+	declare copies_present int;
+    
+	select count(*) into copies_present
+	from store_copies
+	where Store_ID = sid and ISBN = book_isbn and Number_Of_Copies >= ncopies;
+    
+    return copies_present;
+    
+end $$
+delimiter ;
