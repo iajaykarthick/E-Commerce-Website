@@ -452,3 +452,35 @@ begin
     
 end $$
 delimiter ;
+
+### Data Analysis Part 
+
+
+# gives list of count of subcription
+select s.Subscription_Type,count(c.Subscription_ID) 
+from customer c 
+join subscription s
+on s.Subscription_ID = c.Subscription_ID
+group by c.Subscription_ID;
+
+
+# Most popular book/ Copies Sold of each book 
+select b.title,sum(number_of_copies) as 'Total Copies Sold'
+from order_items o
+join book b
+on b.ISBN = o.ISBN
+group by o.ISBN;
+
+## From which store/zipcode we are getting orders
+# For below query to run we need to add store_id to order_items table
+select o.Store_Address ,sum(ot.Number_Of_Copies) as 'Number of Copies Sold'
+from order_items ot
+join store o on o.store_id = ot.store_id
+group by ot.store_id;
+
+
+# Most Prefered Payement Type 
+select Payment_Type, count(*) as 'Count of payements made using this type'
+from payment
+group by Payment_Type;
+
