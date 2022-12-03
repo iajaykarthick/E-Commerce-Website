@@ -29,8 +29,6 @@ def book_list(request):
     show_msg = False
     alert_msg = ""
     
-    cursor = connection.cursor()
-    
     search = False
     search_col = None
     search_val = None
@@ -106,6 +104,8 @@ def book_list(request):
 def book_detail(request, isbn):
     cart_added = False
     user_id= request.session['user_id']
+    
+    
     if request.method == 'POST':
         isbn = request.POST['ISBN']
         quantity = int(request.POST['quantity']) or 1
@@ -113,6 +113,7 @@ def book_detail(request, isbn):
         result = db.add_to_cart(isbn, user_id, quantity)
         if result == 1:
             cart_added = True
+            
     cursor = connection.cursor()
     cursor.execute(f'''
                     SELECT b.*, a.Author_Name, g.Genre 
@@ -146,7 +147,7 @@ def book_detail(request, isbn):
 
 @my_login_required
 def get_cart_details(request):
-    print(request.method)
+    
     sort = False
     if request.method == 'POST' and 'asc' in request.POST:
         if request.POST['asc'] == "False":
@@ -155,9 +156,17 @@ def get_cart_details(request):
             asc = True
     else:
         asc = True
-    
     user_id = request.session['user_id']
-    print("USER ID",user_id)
+            
+    stores = get_stores(user_id)
+    if 'store_id' not in request.session:
+        request.session['store_id'] = stores[0]['store_id']
+    
+    store_id = request.session['store_id']
+    
+    show_msg = False
+    alert_msg = ""
+    
     if request.method == 'POST':
         print(request.POST)
         action = request.POST['action']
@@ -166,23 +175,43 @@ def get_cart_details(request):
         elif action == 'delete_cart_item':
             isbn = request.POST['ISBN']
             db.deleteCartItem(user_id, isbn)
+        elif action == 'inc' or action == 'dec':
+            print(request.POST)
+            isbn = request.POST['ISBN']
+            if action == 'inc':
+                db.increment_cart(user_id, isbn)
+            else:
+                db.decrement_cart(user_id, isbn)
+                
         elif action == 'payment':
             payment_type = request.POST['payment_type']
             store_id = request.session['store_id']
             payment_id = orders_db.add_order_items(user_id, payment_type, store_id)
             response = redirect('orders:view_order_receipt', payment_id)
             return response
+
+        elif action == 'changestore':
+            store_id = request.POST['store_id']
+            if store_id:
+                print('Adding to session', store_id)
+                request.session['store_id'] = store_id
             
     context = {}
 
-    cart_details=db.cart_details(user_id, sort, asc)
-    print(cart_details)
+    (cart_details, checkout_btn_disable) =db.cart_details(user_id, store_id, sort, asc)
+    if checkout_btn_disable:
+        show_msg = True
+        alert_msg = "Delete the out of stock items to proceed"
    
     context['items'] = cart_details
     context['count_items'] = len(cart_details)
     context['cart_count'] = db.countCart(user_id)
     context['total_cost'] = db.getTotalCartCost(user_id)
     context['asc'] = False if asc and 'asc' in request.POST else True
+    context['checkout_btn_disable'] = checkout_btn_disable
+    context['show_msg'] = show_msg
+    context['alert_msg'] = alert_msg
+    context['stores'] = stores
     
     return render(request, 'books/cart.html', context)
 

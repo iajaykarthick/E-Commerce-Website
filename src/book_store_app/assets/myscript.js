@@ -86,3 +86,10 @@ function searchFormSubmit(param) {
 function changeStore(store_id){
   document.getElementById(`changeStoreForm`).submit();
 }
+
+function cart_qty_change(isbn, action) {
+  console.log(isbn)
+  document.getElementById("inc_dec_isbn").value = isbn;
+  document.getElementById("inc_dec_action").value = action;
+  document.getElementById(`changeCartQuantity`).submit();
+}

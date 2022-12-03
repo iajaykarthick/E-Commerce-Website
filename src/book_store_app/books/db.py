@@ -49,11 +49,11 @@ def getTotalCartCost(user_id):
 
     return total_cost or 0
 
-def cart_details(user_id, sort=False, asc=True):
+def cart_details(user_id, store_id, sort=False, asc=True):
 
     try:
         with connection.cursor() as cursor:
-            
+            checkout_btn_disable = False
             print("Showing the cart of the particular customer")
             cart_details = (f'''
                             SELECT c.ISBN,b.image,b.title,c.quantity,b.price from book b
@@ -68,20 +68,37 @@ def cart_details(user_id, sort=False, asc=True):
                 else:
                     cart_details += " ASC"
 
-
             cursor.execute(cart_details)
             query_results = cursor.fetchall()
             columns = [col[0] for col in cursor.description]
             print(columns)
             cart = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(query_results)]
             
+            for book in cart:
+                book['isAvailable'] = ifCopiesAvailale(book['ISBN'], book['quantity'], store_id)
+                if book['isAvailable'] == 0:
+                    checkout_btn_disable = True
     
     except IntegrityError as e:
         print("Error occurred")
         print(e)
         return -1
-    return cart
+    return (cart, checkout_btn_disable)
 
+def ifCopiesAvailale(isbn, qty, store_id):
+    try:
+        with connection.cursor() as cursor:
+            cart_total = (" SELECT check_copies_present(%s, %s, %s)")
+            cursor.execute(cart_total, [store_id, isbn, qty])
+            query_results = cursor.fetchall()
+            availableornot = query_results[0][0]
+            
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
+
+    return availableornot or 0
 
 def deleteCartItem(user_id, isbn):
     try:
@@ -157,6 +174,31 @@ def search(user_id, search_col, search_val):
             columns = [col[0] for col in cursor.description]
             books = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(result_args)]        
             return books
+    
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
+
+def increment_cart(user_id, isbn):
+    try:
+        with connection.cursor() as cursor:
+            print(user_id, isbn)
+            result_args = cursor.callproc('inc_qty', (user_id, isbn))
+            print(result_args)
+    
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
+    
+    
+def decrement_cart(user_id, isbn):
+    try:
+        with connection.cursor() as cursor:
+            print(user_id, isbn)
+            result_args = cursor.callproc('dec_qty', (user_id, isbn))
+            print(result_args)
     
     except IntegrityError as e:
         print("Error occurred")

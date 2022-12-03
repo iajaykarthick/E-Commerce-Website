@@ -3,6 +3,20 @@
 
 <section class="h-100" style="background-color: #eee;">
     <div class="container py-5 h-100">
+     <!-- The actual snackbar -->
+     <div id="snackbar">{{alert_msg}}</div>
+  
+    {% if show_msg %}
+      <script>
+        alertFunc()
+    </script>  
+    {% endif %}
+    <form id="changeCartQuantity" method="POST" action="">
+      {% csrf_token %}
+      <input type="hidden" id="inc_dec_isbn" name="ISBN" value="">
+      <input type="hidden" id="inc_dec_action" name="action" value="">
+    </form>    
+
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col">
           <div class="card">
@@ -41,23 +55,40 @@
                                     src="{{item.image}}"
                                     class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
                                 </div>
-                                <div class="ms-3">
+                                <div class="ms-2">
                                     <h5>{{item.title}}</h5>
-                                    <p class="small mb-0">256GB, Navy Blue</p>
+                                    {% if item.isAvailable == 0 %}
+                                    <div class="small mb-0 alert alert-danger text-cente" role="alert">
+                                      Out of Stock
+                                    </div>
+                                    {% else %}
+                                    <div class="small mb-0 alert alert-success text-center" role="alert">
+                                      In Stock
+                                    </div>
+                                    {% endif %}
                                 </div>
                                 </div>
+                                
                                 <div class="d-flex flex-row align-items-center">
-                                <div style="width: 50px;">
-                                    <h5 class="fw-normal mb-0">{{item.quantity}}</h5>
-                                </div>
+                                  <div style="width: 50px;">
+                                    <button class="btn btn-outline-dark" type="button" onclick="cart_qty_change('{{item.ISBN}}', 'dec')">-</button>
+                                  </div>
+                                  <div style="width: 40px;">
+                                    <p class="fw-normal mb-0" style="padding-left:5px; padding-right:5px">{{item.quantity}}</p>
+                                  </div>
+                                  <div style="width: 60px;">
+                                    <button class="btn btn-outline-dark" type="button" onclick="cart_qty_change('{{item.ISBN}}', 'inc')">+</button>
+                                  </div>
                                 <div style="width: 80px;">
+                                    
                                     <h5 class="mb-0">${% widthratio item.price 1 item.quantity %}</h5>
+                                    
                                 </div>
                                 <form id="{{"deleteCartItemForm_"|add:item.ISBN}}" action="" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="action" value="delete_cart_item">
                                     <input type="hidden" name="ISBN" value="{{item.ISBN}}" class="book_id">
-                                    <a href="#" onclick="deleteCartItem('{{item.ISBN}}')" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="#" onclick="deleteCartItem('{{item.ISBN}}')" style="color: #000000;"><i class="fas fa-trash-alt"></i></a>
                                 </form>
 
                                 </div>
@@ -152,13 +183,12 @@
                 </div>
 
                 {%if count_items > 0%}
-                <div class="col-lg-5">
-  
+                <div class="col-lg-5">  
                   <div class="card bg-primary text-white rounded-3">
                     <div class="card-body">
-                      <div class="d-flex justify-content-between align-items-center mb-4">
+                      <div class="d-flex justify-content-between align-items-center mb-0">
                         <h5 class="mb-0">Card details</h5>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                        <img src="https://t3.ftcdn.net/jpg/02/33/46/24/360_F_233462402_Fx1yke4ng4GA8TJikJZoiATrkncvW6Ib.jpg"
                           class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
                       </div>
   
@@ -236,13 +266,23 @@
                         <p class="mb-2">${{total_cost|add:20|stringformat:".2f"}}</p>
                       </div>
   
-                        <a href="#" onclick="submitPaymentForm()" type="button" class="btn btn-info btn-block btn-lg" >
 
-                        <div class="d-flex justify-content-between">
-                          {% comment %} <span>${{total_cost|add:20|stringformat:".2f"}}</span> {% endcomment %}
-                          <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                        </div>
-                      </a>
+                      {% if checkout_btn_disable %}
+                        <a href="#" onclick="submitPaymentForm()" type="button" class="btn btn-danger btn-block btn-lg" style="pointer-events: none">
+                          <div class="d-flex justify-content-between">
+                            {% comment %} <span>${{total_cost|add:20|stringformat:".2f"}}</span> {% endcomment %}
+                            <span>Delete the out of stock items and then checkout</span>
+                          </div>
+                        </a>
+                      {% else %}
+                        <a href="#" onclick="submitPaymentForm()" type="button" class="btn btn-info btn-block btn-lg">
+                          <div class="d-flex justify-content-between">
+                            {% comment %} <span>${{total_cost|add:20|stringformat:".2f"}}</span> {% endcomment %}
+                            <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                          </div>
+                        </a>
+                      {% endif %}
+                       
 
                       </form>
                     </div>
