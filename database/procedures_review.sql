@@ -205,7 +205,7 @@ BEGIN
     
 END $$
 delimiter ;
-
+select * from orders;
 -- select * from store_copies where store_id = 1;
 
 -- CALL checkout(1001, 1, 2, @M);
@@ -300,3 +300,47 @@ delimiter ;
 
 -- delete from cart 
 -- where Customer_ID = 5;
+
+
+
+## Stored Procedure 12
+#### Procedure to get the locaions of the store based on the user location 
+## This will give us store id of the 10 store present in that state.
+
+delimiter $$
+create procedure store_location(
+	in cid int
+)
+begin 
+
+	with customer_details as (select z.State
+							  from customer c 
+							  join zipcode z 
+							  on z.zipcode = c.zipcode
+							  where c.id = cid), # here you should give id of the customer.
+
+	store_details as (select z.zipcode, s.store_id, s.Store_Address,z.city, z.state
+					  from store s 
+					  join zipcode z 
+					  on z.zipcode = s.zipcode
+					  join customer_details cd 
+					  on cd.state = z.state)
+
+	select z.zipcode, s.store_id, s.Store_Address ,z.City, z.State
+    from customer c 
+    join zipcode z 
+    on z.zipcode = c.zipcode
+    join store s on s.Zipcode= z.zipcode
+    where c.id = cid
+    
+	union 
+    
+	select * from store_details 
+	order by store_id
+	limit 9;
+    
+end $$
+delimiter ;
+
+call store_location(18);
+

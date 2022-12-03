@@ -21,14 +21,6 @@ END $$
 
 delimiter ;
 
-show triggers;
-
-
-select * from cart;
-
-insert into cart values(1,'0061030147',15 );
-
-
 ## 1 STored Procedure 
 # Getting book name with author 
 
@@ -185,8 +177,6 @@ BEGIN
 	SELECT @order_id, c.ISBN, c.quantity
 	FROM CART c
 	WHERE c.Customer_ID= customer_id; 
-    
-    
     
 	DELETE FROM cart where Customer_ID = customer_id;
     

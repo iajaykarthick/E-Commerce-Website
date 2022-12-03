@@ -36,6 +36,8 @@ def book_list(request):
     search_val = None
     
     stores = get_stores(user_id)
+    if 'store_id' not in request.session:
+        request.session['store_id'] = stores[0]['store_id']
     
     if request.method == 'POST':
         
@@ -166,7 +168,8 @@ def get_cart_details(request):
             db.deleteCartItem(user_id, isbn)
         elif action == 'payment':
             payment_type = request.POST['payment_type']
-            payment_id = orders_db.add_order_items(user_id, payment_type)
+            store_id = request.session['store_id']
+            payment_id = orders_db.add_order_items(user_id, payment_type, store_id)
             response = redirect('orders:view_order_receipt', payment_id)
             return response
             
