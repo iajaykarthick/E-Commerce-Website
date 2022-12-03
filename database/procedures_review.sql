@@ -176,6 +176,7 @@ delimiter $$
 CREATE PROCEDURE checkout(
 	in customer_id int, 
     in payment_type int,
+    in store_id int,
     out p_id int
 )
 BEGIN
@@ -183,9 +184,10 @@ BEGIN
     INSERT INTO PAYMENT(PAYMENT_TYPE) VALUES(payment_type);
     SET @payment_id = LAST_INSERT_ID();
     SET p_id := LAST_INSERT_ID();
+    SET @s_id := store_id;
     
-    INSERT INTO ORDERS(Customer_ID, Total_Price, ORDER_DATE, Payment_ID)
-	SELECT c.CUSTOMER_ID, sum(c.quantity * b.price) + 20, @payment_id
+    INSERT INTO ORDERS(Customer_ID, Total_Price, Payment_ID, STORE_ID)
+	SELECT c.CUSTOMER_ID, sum(c.quantity * b.price) + 20, @payment_id, @s_id
 	FROM CART c
 	JOIN Book b on c.ISBN=b.ISBN
 	WHERE c.CUSTOMER_ID= customer_id
@@ -197,17 +199,20 @@ BEGIN
 	SELECT @order_id, c.ISBN, c.quantity
 	FROM CART c
 	WHERE c.Customer_ID= customer_id; 
-    
-    
-    
+
 	DELETE FROM cart where Customer_ID = customer_id;
     
     
 END $$
 delimiter ;
 
---  CALL checkout(1001, 1, @M);
---  SELECT @M;
+-- select * from store_copies where store_id = 1;
+
+-- CALL checkout(1001, 1, 2, @M);
+
+-- SELECT * FROM ORDERS;
+-- select * from cart;
+-- SELECT @M;
  
  -- --------------------------------------------- --
  
