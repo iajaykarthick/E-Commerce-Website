@@ -6,11 +6,6 @@ from django.contrib import messages
 import time
 from . import db
 
-
-
-def home(request):
-    return HttpResponse('<h1>Hello World!</h1>')
-
 def redirect_view(request):
     response = redirect('accounts:login')
     return response
@@ -19,11 +14,6 @@ def register_user(request):
     
     context = {'error_msg': ''}
     if request.method == 'POST':
-        print(f'Request is {request.POST}')
-            
-
-        ## Insert into customer table 
-        print(type(request.POST['password']))
         customer_id = db.insert_customer(request.POST["fname"],
                            request.POST["lname"],
                            request.POST["email"],
@@ -43,8 +33,6 @@ def register_user(request):
             print('error occurred')
 
     return render(request, 'accounts/register.html', context)
-
-
 
 def login_user(request):
     context = {'error_msg': ''}

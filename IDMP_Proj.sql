@@ -13,9 +13,7 @@ IF NEW.quantity >10 THEN
 
 SIGNAL SQLSTATE '45000'
 
-SET MESSAGE_TEXT = 'ERROR:
-
-         Max BookQuantity MUST BE 10!';
+SET MESSAGE_TEXT = 'ERROR: Max BookQuantity MUST BE 10!';
 
 END IF;
 

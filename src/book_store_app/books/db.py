@@ -6,14 +6,6 @@ def add_to_cart(book_isbn, user_id, quantity):
  
     try:
         with connection.cursor() as cursor:
-            
-            # add_to_cart = ("INSERT INTO Cart "
-            #         "(Customer_ID, ISBN, Quantity) "
-            #         "VALUES (%s, %s, %s)")
-
-            # cart = (user_id, book_isbn, quantity)
-            # cursor.execute(add_to_cart, cart)
-            
             print("Updating Particular cart item from user's cart")
             args = [user_id, book_isbn, quantity]
             result_args = cursor.callproc('cart_update', args)
@@ -64,10 +56,10 @@ def cart_details(user_id, sort=False, asc=True):
             
             print("Showing the cart of the particular customer")
             cart_details = (f'''
-                            select c.ISBN,b.image,b.title,c.quantity,b.price from book b
-                            join cart c
-                            on c.ISBN = b.ISBN
-                            where c.Customer_ID = {user_id} 
+                            SELECT c.ISBN,b.image,b.title,c.quantity,b.price from book b
+                            JOIN cart c
+                            ON c.ISBN = b.ISBN
+                            WHERE c.Customer_ID = {user_id} 
                         ''')
             if sort:
                 cart_details += " ORDER BY b.price * c.quantity"
@@ -107,3 +99,66 @@ def deleteCartItem(user_id, isbn):
         return -1
 
     return 1
+
+
+def getStores(user_id):
+    try:
+        with connection.cursor() as cursor:
+            
+            cursor.callproc('store_location', (user_id, ))
+            result_args = cursor.fetchall()
+            
+            columns = [col[0] for col in cursor.description]
+            stores = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(result_args)]
+            
+            return stores
+        
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
+    
+def getAllBooks(user_id):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                                SELECT B.*, C.QUANTITY 
+                                FROM BOOK B 
+                                LEFT JOIN (SELECT * FROM CART WHERE CUSTOMER_ID = %(user_id)s) C
+                                ON B.ISBN = C.ISBN;
+                            ''', {'user_id' : user_id})
+
+            query_results = cursor.fetchall()
+            columns = [col[0] for col in cursor.description]
+            books = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(query_results)]
+            
+            return books
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
+
+
+def search(user_id, search_col, search_val):
+    procedure = {
+        'isbn': 'books_with_ISBN',
+        'title': 'books_name',
+        'author': 'books_with_author',
+        'genre': 'books_with_genre',
+        'year': 'books_with_year',
+        'publisher': 'books_with_publisher'
+    }
+    
+    try:
+        with connection.cursor() as cursor:
+            
+            cursor.callproc(procedure[search_col], (search_val, user_id, ))
+            result_args = cursor.fetchall()
+            columns = [col[0] for col in cursor.description]
+            books = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(result_args)]        
+            return books
+    
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1
