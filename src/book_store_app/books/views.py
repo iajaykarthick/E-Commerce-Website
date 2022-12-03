@@ -14,51 +14,76 @@ from django.core.paginator import Paginator
 # login required
 from book_store_app.decorators import my_login_required
 
-
 app_name = 'books'
+
+#list of views
+# 1. book_list
+# 2. book_detail
+# 3. get_cart_details
 
 @my_login_required
 def book_list(request):
     
-    cart_added = False
-    alert_msg = ""
-    cursor = connection.cursor()
     user_id= request.session['user_id']
+    
+    show_msg = False
+    alert_msg = ""
+    
+    cursor = connection.cursor()
+    
+    search = False
+    search_col = None
+    search_val = None
+    
+    stores = get_stores(user_id)
+    if 'store_id' not in request.session:
+        request.session['store_id'] = stores[0]['store_id']
+    
     if request.method == 'POST':
-        print(f'Request is {request.POST}')
-        isbn = request.POST['ISBN']
-        current_quantity = request.POST['current_quantity'] 
-        new_quantity = request.POST['quantity'] 
-        ## Insert into cart table 
-        cart_added = True
-        if new_quantity != current_quantity and int(new_quantity) > 0:
-            result = db.add_to_cart(isbn, user_id, new_quantity)
-            if result == 1:
-                
-                alert_msg = "Added to Cart"
+        
+        action = request.POST['action']
+        
+        if action == 'addtocart':
+            
+            show_msg = True
+            
+            isbn = request.POST['ISBN']
+            current_quantity = request.POST['current_quantity'] 
+            new_quantity = request.POST['quantity'] 
+            
+            if new_quantity != current_quantity and int(new_quantity) > 0:
+                result = db.add_to_cart(isbn, user_id, new_quantity)
+                alert_msg = "Added to Cart" if result == 1 else "Not Added to Cart"
             else:
+                alert_msg = "Increase or Decrease Quantity and then add to cart"
                 
-                alert_msg = "Not Added to Cart"
-        else:
+        elif action == 'search':
             
-            alert_msg = "Increase or Decrease Quantity and then add to cart"
+            search_col = request.POST['search_parameter']
+            search_val = request.POST['search_value']
             
-    # cursor.execute('SELECT * FROM BOOK')
+            if search_col and search_val:
+                print('X ', search_col, search_val)
+                search = True
+            elif not search_col and search_val:
+                show_msg = True
+                alert_msg = "Select a column to search on"
+                
+        elif action == 'changestore':
+            store_id = request.POST['store_id']
+            if store_id:
+                print('Adding to session', store_id)
+                request.session['store_id'] = store_id
+                
+    if search:
+        books_list = db.search(user_id, search_col, search_val)
+    else:
+        books_list = db.getAllBooks(user_id)
+        
+    if len(books_list) == 0:
+        show_msg = True
+        alert_msg = "No rows returned"
     
-    cursor.execute('''
-                    SELECT B.*, C.QUANTITY 
-                    FROM BOOK B 
-                    LEFT JOIN (SELECT * FROM CART WHERE CUSTOMER_ID = %(user_id)s) C
-                    ON B.ISBN = C.ISBN;
-                   ''', {'user_id' : user_id})
-
-    query_results = cursor.fetchall()
-    
-    columns = [col[0] for col in cursor.description]
-    print(columns)
-    books_list = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(query_results)]
-    
-    # set up pagination
     p = Paginator(books_list, 10)
     page = request.GET.get('page')
     books = p.get_page(page)
@@ -68,8 +93,10 @@ def book_list(request):
          'books': books,
          'request': request,
          'cart_count': db.countCart(user_id),
-         'added': cart_added,
-         'alert_msg': alert_msg
+         'show_msg': show_msg,
+         'alert_msg': alert_msg,
+         'stores': stores,
+         'search': search
     }
     
     return render(request,'books/books_list.html',context)
@@ -82,8 +109,7 @@ def book_detail(request, isbn):
     if request.method == 'POST':
         isbn = request.POST['ISBN']
         quantity = int(request.POST['quantity']) or 1
-        print(quantity)
-        ## Insert into cart table 
+        
         result = db.add_to_cart(isbn, user_id, quantity)
         if result == 1:
             cart_added = True
@@ -103,7 +129,7 @@ def book_detail(request, isbn):
     query_results = cursor.fetchall()
     
     columns = [col[0] for col in cursor.description]
-    print(columns)
+
     book = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(query_results)]
     
     authors = list(set([b['Author_Name'] for b in book]))
@@ -117,21 +143,6 @@ def book_detail(request, isbn):
                                                     'cart_count': db.countCart(user_id),
                                                     'added': cart_added
                                                     })
-
-# @my_login_required
-# def add_to_cart(request):
-
-#     ## Insert into cart table 
-#     email=request.session['user_id']
-     
-#     base_url = reverse('books:list')  # 1 /books/
-#     query_string =  urlencode({'cart_added': True})  # 2 cart_added=True
-#     url = '{}?{}'.format(base_url, query_string)  # /books/?cart_added=True
-
-#     return render(request, 'books/cart.html', {})
-#     #return redirect(url)
-    
-
 
 @my_login_required
 def get_cart_details(request):
@@ -157,7 +168,8 @@ def get_cart_details(request):
             db.deleteCartItem(user_id, isbn)
         elif action == 'payment':
             payment_type = request.POST['payment_type']
-            payment_id = orders_db.add_order_items(user_id, payment_type)
+            store_id = request.session['store_id']
+            payment_id = orders_db.add_order_items(user_id, payment_type, store_id)
             response = redirect('orders:view_order_receipt', payment_id)
             return response
             
@@ -173,3 +185,12 @@ def get_cart_details(request):
     context['asc'] = False if asc and 'asc' in request.POST else True
     
     return render(request, 'books/cart.html', context)
+
+
+
+
+def get_stores(user_id):
+    # get store_ids 
+    results = db.getStores(user_id)
+    stores = [{'store_id': store['store_id'], 'store': store['Store_Address']} for store in results]
+    return stores

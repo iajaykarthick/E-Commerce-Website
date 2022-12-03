@@ -8,13 +8,13 @@
      <!-- The actual snackbar -->
      <div id="snackbar">{{alert_msg}}</div>
   
-    {% if added %}
+    {% if show_msg %}
       <script>
         alertFunc()
     </script>  
     {% endif %}     
 
-
+{% if books%}
     <div class="row">
       {% for book in books %}
       <div class="col-auto mb-4">
@@ -28,10 +28,11 @@
                 <form action="" method="post">
                   {% csrf_token %}
                   <input type="hidden" name="ISBN" value="{{book.ISBN}}">
-                <input type="hidden" name="current_quantity" value="{{book.Quantity}}">
+                  <input type="hidden" name="current_quantity" value="{{book.Quantity}}">
+                  <input type="hidden" name="action" value="addtocart">
+                  <button class="btn btn-outline-dark" type="button" onclick="decrement('{{book.ISBN}}')">-</button>
                   <input id="{{"quantity_"|add:book.ISBN}}" name="quantity" type="number" value="{{book.Quantity|default_if_none:0}}" min=0 max=10>
-                  <button type="button" onclick="increment('{{book.ISBN}}')">+</button>
-                  <button type="button" onclick="decrement('{{book.ISBN}}')">-</button>
+                  <button class="btn btn-outline-dark" type="button" onclick="increment('{{book.ISBN}}')">+</button>
                   <input type="submit" class="btn btn-outline-dark" style="float:left;" value="Add to Cart" />
                 </form>
 
@@ -72,4 +73,9 @@
 
   {% endif %}
   
+{% else %}
+<div class="container">
+<h1>No rows returned</h1>
+</div>
+{% endif %}
 {% endblock %}

@@ -57,3 +57,32 @@ function sortbypriceformsubmit(){
  function submitPaymentForm(){
   document.getElementById(`submitPayment`).submit();
  }
+
+ function openSearchParametersDropdown() {
+  var searchdropdown = document.getElementById("mySearchDropdown")
+  
+  // .classList.toggle("show");
+  var search_val = document.getElementById("searchvalue").value
+  console.log(searchdropdown.classList.contains("show") && (search_val == null || search_val == ""))
+  if (searchdropdown.classList.contains("show")) {
+    if (search_val == null || search_val == "") {
+    searchdropdown.classList.remove("show");
+    }
+  } else {
+    if (search_val != null && search_val != "") {
+      searchdropdown.classList.add("show");
+    }
+  }
+}
+
+
+function searchFormSubmit(param) {
+  document.getElementById("search_parameter").value = param;
+
+  document.getElementById(`searchForm`).submit();
+}
+
+
+function changeStore(store_id){
+  document.getElementById(`changeStoreForm`).submit();
+}

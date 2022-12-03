@@ -1,20 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
 
-      {% if 'user_id' in request.session%}
+      {% if 'user_id' in request.session and stores%}
+      <form class="d-flex"  id="changeStoreForm" action="" method="POST" role="search">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="changestore">
         <li class="navbar-nav">
-          <select class="form-select mb-0" aria-label="Select Store">
-            <option selected>Select Book Store</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="form-select mb-0" aria-label="Select Store" onchange="changeStore(this.value)" name="store_id">
+            {% for store in stores %}
+              {% if forloop.counter == 1 or store.store_id|stringformat:"i" == request.session.store_id %}
+                <option value="{{store.store_id}}" selected=True>{{store.store}}</option>
+              {% else %}
+                <option value="{{store.store_id}}">{{store.store}}</option>
+              {% endif %}
+            {% endfor %}
+
           </select>
         </li>
+      </form>
       {% else %}
         <a class="navbar-brand" href="{% url 'accounts:home'%}">Book Store</a>
       {% endif %}
-      
-
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,9 +31,23 @@
             <a class="nav-link" href="{% url 'books:list' %}"> View Books</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="d-flex"  id="searchForm" action="" method="POST" role="search">
+          <div class="search-dropdown">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="search">
+            <input type="hidden" id="search_parameter" name="search_parameter" value=""> 
+            <input id="searchvalue" name="search_value" onkeyup="openSearchParametersDropdown()" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <div id="mySearchDropdown" class="search-dropdown-content">
+              <a href="#" onclick="searchFormSubmit('isbn')">Search by ISBN</a>
+              <a href="#" onclick="searchFormSubmit('title')">Search by Title</a>
+              <a href="#" onclick="searchFormSubmit('author')">Search by Author</a>
+              <a href="#" onclick="searchFormSubmit('genre')">Search by Genre</a>
+              <a href="#" onclick="searchFormSubmit('year')">Search by Year</a>
+              <a href="#" onclick="searchFormSubmit('publisher')">Search by Publisher</a>
+            </div>
+          </div>
+
+          {% comment %} <button class="btn btn-outline-success" type="submit">Search</button> {% endcomment %}
         </form>
 
 
@@ -47,11 +67,7 @@
             <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a></li>
           </ul>
         </div>
-       
-{% comment %} 
-        <form action="{% url 'accounts:logout' %}">
-         <input type="submit" class="btn btn-outline-primary" value="Logout">
-        </form> {% endcomment %}
+        
         {% endif %}
 
       </div>
