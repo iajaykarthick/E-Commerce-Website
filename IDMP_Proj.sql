@@ -444,6 +444,9 @@ delimiter ;
 ### Data Analysis Part 
 
 
+### Data Analysis Part 
+
+
 # gives list of count of subcription
 select s.Subscription_Type,count(c.Subscription_ID) 
 from customer c 
