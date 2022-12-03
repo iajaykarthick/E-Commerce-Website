@@ -475,3 +475,23 @@ select Payment_Type, count(*) as 'Count of payements made using this type'
 from payment
 group by Payment_Type;
 
+
+# Revenue
+insert into payment values(1,'Credit Card');
+insert into orders(order_id, customer_id,total_price,payment_id,store_id) values (1,1,300,1,2);
+
+# per day revenue 
+select order_date as 'day', sum(Total_Price) as 'Total_Revenue per day'
+from orders
+group by order_date;
+
+# per month revenue 
+select year(order_date) as 'year', month(order_date) as 'month', sum(Total_Price) as 'Total_Revenue per month'
+from orders
+group by year(order_date), month(order_date);
+
+#yearly forcast
+select year(order_date) as 'year', sum(Total_Price) as 'Total_Revenue per year'
+from orders
+group by year(order_date);
+
