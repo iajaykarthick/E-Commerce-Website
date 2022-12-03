@@ -440,3 +440,58 @@ begin
     
 end $$
 delimiter ;
+
+### Data Analysis Part 
+
+
+### Data Analysis Part 
+
+
+# gives list of count of subcription
+select s.Subscription_Type,count(c.Subscription_ID) 
+from customer c 
+join subscription s
+on s.Subscription_ID = c.Subscription_ID
+group by c.Subscription_ID;
+
+
+# Most popular book/ Copies Sold of each book 
+select b.title,sum(number_of_copies) as 'Total Copies Sold'
+from order_items o
+join book b
+on b.ISBN = o.ISBN
+group by o.ISBN;
+
+## From which store/zipcode we are getting orders
+# For below query to run we need to add store_id to order_items table
+select o.Store_Address ,sum(ot.Number_Of_Copies) as 'Number of Copies Sold'
+from order_items ot
+join store o on o.store_id = ot.store_id
+group by ot.store_id;
+
+
+# Most Prefered Payement Type 
+select Payment_Type, count(*) as 'Count of payements made using this type'
+from payment
+group by Payment_Type;
+
+
+# Revenue
+insert into payment values(1,'Credit Card');
+insert into orders(order_id, customer_id,total_price,payment_id,store_id) values (1,1,300,1,2);
+
+# per day revenue 
+select order_date as 'day', sum(Total_Price) as 'Total_Revenue per day'
+from orders
+group by order_date;
+
+# per month revenue 
+select year(order_date) as 'year', month(order_date) as 'month', sum(Total_Price) as 'Total_Revenue per month'
+from orders
+group by year(order_date), month(order_date);
+
+#yearly forcast
+select year(order_date) as 'year', sum(Total_Price) as 'Total_Revenue per year'
+from orders
+group by year(order_date);
+
