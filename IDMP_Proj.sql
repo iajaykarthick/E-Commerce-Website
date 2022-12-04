@@ -495,3 +495,19 @@ select year(order_date) as 'year', sum(Total_Price) as 'Total_Revenue per year'
 from orders
 group by year(order_date);
 
+
+# Top 5 selling genres 
+select * from orders;
+select * from order_items;
+insert into order_items values(1,'0002005018',3,1);
+
+select g.Genre, sum(Number_Of_Copies) as 'Copies Sold'
+from order_items ot
+join book_genre bg
+on bg.ISBN = ot.ISBN
+join genre g 
+on g.Genre_ID = bg.Genre_ID
+group by g.Genre
+order by sum(Number_Of_Copies) desc 
+limit 5;
+

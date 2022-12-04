@@ -223,3 +223,41 @@ def get_stores(user_id):
     results = db.getStores(user_id)
     stores = [{'store_id': store['store_id'], 'store': store['Store_Address']} for store in results]
     return stores
+
+
+def charts(request):
+    result = db.get_user_types()
+    context={}
+    temp1=[]
+    temp2=[]
+    titles=[]
+    sold_count=[]
+    dates=[]
+    sales=[]
+    month=[]
+    monthly_sales=[]
+    for i in result:
+        temp1.append(i[0])
+        temp2.append(i[1])
+    result = db.get_top_sold_books()
+    for i in result:
+        titles.append(i[0])
+        sold_count.append(i[1])
+    result=db.get_sale_last_5_days()
+    for i in result:
+        dates.append(str(i[0]))
+        sales.append(i[1])
+    result=db.monthly_rev()
+    for i in result:
+        month.append(str(i[0]))
+        monthly_sales.append(i[1])
+    context['ids']=temp1
+    context['count']=temp2
+    context['titles']=titles
+    context['sold_count']=sold_count
+    context['dates']=dates
+    context['sales']=sales
+    context['month']=month
+    context['monthly_sales']=monthly_sales
+    print(context)
+    return render(request, 'books/charts.html',context)
