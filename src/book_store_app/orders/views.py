@@ -58,6 +58,7 @@ def view_order_receipt(request, payment_id):
 
 @my_login_required
 def view_orders(request):
+    
     user_id = request.session['user_id']
 
     orders = db.getListOfOrdersPlaced(user_id)

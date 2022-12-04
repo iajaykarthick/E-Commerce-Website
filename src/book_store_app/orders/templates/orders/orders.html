@@ -20,7 +20,7 @@
                 {% for order_item in order %}
                 <tr>
                     {% if order_item.span is not None%}
-                        <td  style="vertical-align : middle;text-align:center;" rowspan="{{order_item.span}}">{{order_item.order_id}}</th>
+                        <td  style="vertical-align : middle;text-align:center;" rowspan="{{order_item.span}}"><a href="{% url 'orders:view_order_receipt' order_item.payment_id %}">{{forloop.parentloop.counter}}</a></th>
                     {% endif %}
                     
                     <td>{{order_item.title}}</td>

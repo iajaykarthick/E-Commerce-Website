@@ -65,7 +65,7 @@ def getListOfOrdersPlaced(user_id):
             print("Getting list of Order Details")
     
             select_query = """
-                    SELECT O.ORDER_ID, O.TOTAL_PRICE, DATE_FORMAT(O.ORDER_DATE, "%%m/%%d/%%Y") AS ORDER_DATE, OI.ISBN, OI.NUMBER_OF_COPIES as quantity, B.title, B.image, (b.price * OI.NUMBER_OF_COPIES) as item_total_price, p.payment_type
+                    SELECT O.ORDER_ID, O.PAYMENT_ID, O.TOTAL_PRICE, DATE_FORMAT(O.ORDER_DATE, "%%m/%%d/%%Y") AS ORDER_DATE, OI.ISBN, OI.NUMBER_OF_COPIES as quantity, B.title, B.image, (b.price * OI.NUMBER_OF_COPIES) as item_total_price, p.payment_type
                     FROM PAYMENT P
                     JOIN ORDERS O
                     ON P.PAYMENT_ID = O.PAYMENT_ID
@@ -84,7 +84,7 @@ def getListOfOrdersPlaced(user_id):
             
             
             columns = [col[0] for col in cursor.description]
-            print(columns)
+            
             res = [{col: col_value for col, col_value in zip(columns, row)} for ind, row in enumerate(results)]
             
             o_id = None
@@ -97,7 +97,7 @@ def getListOfOrdersPlaced(user_id):
             for s in span:
                 print(s, span[s])
             print('**********')
-            
+            print('--- ', res)
             
             orders = []
             order = []
@@ -118,8 +118,10 @@ def getListOfOrdersPlaced(user_id):
                 item['image'] = row['image']
                 item['item_total_price'] =  row['item_total_price']
                 item['total_price'] = row['TOTAL_PRICE']
+                item['payment_id'] = row['PAYMENT_ID']
                 order.append(item)
-    
+            orders.append(order)
+
             return orders
         
     except IntegrityError as e:
