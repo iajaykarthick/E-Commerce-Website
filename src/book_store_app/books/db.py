@@ -204,3 +204,69 @@ def decrement_cart(user_id, isbn):
         print("Error occurred")
         print(e)
         return -1
+
+
+def get_user_types():
+    try:
+        with connection.cursor() as cursor:
+            print("geting user types")
+            cursor.execute('''select Subscription_ID,count(*) from Customer
+                                group by Subscription_ID''')
+            result =  cursor.fetchall()
+            return result
+    
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1 
+    
+
+
+
+def get_top_sold_books():
+    try:
+        with connection.cursor() as cursor:
+            print("geting top sold books")
+            cursor.execute('''select b.title,sum(number_of_copies) 
+                                from order_items o
+                                join book b
+                                on b.ISBN = o.ISBN
+                                group by o.ISBN
+                                order by sum(number_of_copies) desc 
+                                limit 5 ''')
+            result =  cursor.fetchall()
+            return result
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1 
+
+def get_sale_last_5_days():
+    try:
+        with connection.cursor() as cursor:
+            print("Last 5 days sale")
+            cursor.execute('''select order_date, sum(Total_Price) from orders
+                                group by order_date
+                                limit 5''')
+            result =  cursor.fetchall()
+            return result
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1 
+
+def monthly_rev():
+    try:
+        with connection.cursor() as cursor:
+            print("Montly Revenue for current year")
+            cursor.execute('''select month(order_date) as 'month', sum(Total_Price) as 'Total_Revenue per month'
+                            from orders
+                            where year(order_date) = year(CURRENT_TIMESTAMP)
+                            group by month(order_date)
+                            ''')
+            result =  cursor.fetchall()
+            return result
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1 

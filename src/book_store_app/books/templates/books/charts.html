@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+
+        <style>
+             div {
+            height: 200px;
+            width: 50%;
+          }
+         
+        </style>
+       
+        
+    </head>
+        <body>
+            <div class="chart-container" >
+                <canvas id="myChart"></canvas>
+                <canvas id="chart2"></canvas>
+                <canvas id="montly_sales"></canvas>
+                <canvas id="last_5_days_sale"></canvas>
+                
+            </div>
+            <script> 
+
+                                var ctx = document.getElementById('myChart').getContext('2d');
+                                var labels =['Silver','Gold','Platinum']
+                                var count = {{count|safe}}
+                var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                            labels: labels ,       
+                            datasets: [{
+                            label: "Customers in each subscription", 
+                            backgroundColor: ['silver','gold','blue'],          
+                            data: count ,            
+                            }]
+                            
+                       },
+                       options: {
+                                scales: {
+                                    yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                    }]
+                                }
+                                }
+                            
+    
+               } );
+               </script>
+            
+        
+            <script> 
+
+                                var ctx = document.getElementById('chart2').getContext('2d');
+                                var labels ={{titles|safe}}
+                                var copies_sold = {{sold_count|safe}}
+                var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                            labels: labels ,       
+                            datasets: [{
+                            label: 'Copies Sold', 
+                            backgroundColor: ['red','orange','yellow','green','aqua'],          
+                            data: copies_sold ,            
+                            }]
+                            
+                       },
+                       options: {
+                                scales: {
+                                    yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                    }]
+                                }
+                                }
+                            
+    
+               } );
+               </script>
+
+                <script> 
+
+                    var ctx = document.getElementById('last_5_days_sale').getContext('2d');
+                    var labels ={{dates|safe}}
+                    var copies_sold = {{sales|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Total Sales',
+                backgroundColor:'red' ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
+
+                <script> 
+
+                    var ctx = document.getElementById('montly_sales').getContext('2d');
+                    var labels ={{month|safe}}
+                    var copies_sold = {{monthly_sales|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Montly Sales',
+                backgroundColor:'orange' ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
+
+            
+        </body>
+</html>
