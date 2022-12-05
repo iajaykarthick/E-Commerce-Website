@@ -18,6 +18,7 @@
                 <canvas id="chart2"></canvas>
                 <canvas id="montly_sales"></canvas>
                 <canvas id="last_5_days_sale"></canvas>
+                <canvas id="popular_genre"></canvas>
                 
             </div>
             <script> 
@@ -125,6 +126,38 @@
                 datasets: [{
                 label: 'Montly Sales',
                 backgroundColor:'orange' ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
+
+                <script> 
+
+                    var ctx = document.getElementById('popular_genre').getContext('2d');
+                    var labels ={{genre|safe}}
+                    var copies_sold = {{book_count|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Popular Genre',
+                backgroundColor:['red','orange','yellow','green','aqua'] ,
                 borderColor:'rgb(75, 192, 192)',
                 fill:false,    
                 data: copies_sold ,            

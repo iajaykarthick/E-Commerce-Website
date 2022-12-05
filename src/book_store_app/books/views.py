@@ -236,6 +236,8 @@ def charts(request):
     sales=[]
     month=[]
     monthly_sales=[]
+    genre=[]
+    book_count=[]
     for i in result:
         temp1.append(i[0])
         temp2.append(i[1])
@@ -251,6 +253,11 @@ def charts(request):
     for i in result:
         month.append(str(i[0]))
         monthly_sales.append(i[1])
+
+    result=db.popular_genre()
+    for i in result:
+        genre.append(i[0])
+        book_count.append(i[1])
     context['ids']=temp1
     context['count']=temp2
     context['titles']=titles
@@ -259,5 +266,7 @@ def charts(request):
     context['sales']=sales
     context['month']=month
     context['monthly_sales']=monthly_sales
+    context['genre']=genre
+    context['book_count']=book_count
     print(context)
     return render(request, 'books/charts.html',context)
