@@ -19,7 +19,7 @@
                 <canvas id="montly_sales"></canvas>
                 <canvas id="last_5_days_sale"></canvas>
                 <canvas id="popular_genre"></canvas>
-                
+                <canvas id="best_performing_store"></canvas>
             </div>
             <script> 
 
@@ -179,5 +179,36 @@
                 </script>
 
             
+                <script> 
+
+                    var ctx = document.getElementById('best_performing_store').getContext('2d');
+                    var labels ={{store_id|safe}}
+                    var copies_sold = {{copies_sold|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Best Performing Store ',
+                backgroundColor:['red','orange','yellow','green','aqua'] ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
         </body>
 </html>

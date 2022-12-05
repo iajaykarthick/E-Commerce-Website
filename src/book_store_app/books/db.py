@@ -289,3 +289,20 @@ def popular_genre():
         print("Error occurred")
         print(e)
         return -1 
+
+def store_best_performing():
+    try:
+        with connection.cursor() as cursor:
+            print("Best Performing Store")
+            cursor.execute('''
+                               select Store_ID,count(*) as cnt from ORDERS 
+                                group by Store_ID 
+                                order by cnt desc 
+                                limit 5
+                            ''')
+            result =  cursor.fetchall()
+            return result
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1 
