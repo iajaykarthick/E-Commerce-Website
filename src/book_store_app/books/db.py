@@ -270,3 +270,39 @@ def monthly_rev():
         print("Error occurred")
         print(e)
         return -1 
+
+def popular_genre():
+    try:
+        with connection.cursor() as cursor:
+            print("Most Popular Genres")
+            cursor.execute('''
+                                select g.Genre,count(*) from ORDER_ITEMS o
+                                join BOOK_GENRE bg on bg.ISBN= o.ISBN
+                                join Genre g on g.Genre_ID =  bg.Genre_ID
+                                group by g.Genre_ID
+                                order by count(*) desc
+                                limit 5
+                            ''')
+            result =  cursor.fetchall()
+            return result
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1 
+
+def store_best_performing():
+    try:
+        with connection.cursor() as cursor:
+            print("Best Performing Store")
+            cursor.execute('''
+                               select Store_ID,count(*) as cnt from ORDERS 
+                                group by Store_ID 
+                                order by cnt desc 
+                                limit 5
+                            ''')
+            result =  cursor.fetchall()
+            return result
+    except IntegrityError as e:
+        print("Error occurred")
+        print(e)
+        return -1 
