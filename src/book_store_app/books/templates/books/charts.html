@@ -1,25 +1,14 @@
-<html>
-    <head>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
-
-        <style>
-             div {
-            height: 200px;
-            width: 50%;
-          }
-         
-        </style>
-       
-        
-    </head>
-        <body>
-            <div class="chart-container" >
+{% extends 'base_layout.html' %}
+{% block content %}
+<section class="" style="background-color: #eee;">
+    <div class="container py-5">
                 <canvas id="myChart"></canvas>
                 <canvas id="chart2"></canvas>
                 <canvas id="montly_sales"></canvas>
-                <canvas id="last_5_days_sale"></canvas>
-                
-            </div>
+                <canvas id="last_5_days_sale"></canvas>  
+    </div>
+</section>
+
             <script> 
 
                                 var ctx = document.getElementById('myChart').getContext('2d');
@@ -54,7 +43,7 @@
             <script> 
 
                                 var ctx = document.getElementById('chart2').getContext('2d');
-                                var labels ={{titles|safe}}
+                                var labels = {{titles|safe}}
                                 var copies_sold = {{sold_count|safe}}
                 var myChart = new Chart(ctx, {
                             type: 'bar',
@@ -144,7 +133,4 @@
 
                 } );
                 </script>
-
-            
-        </body>
-</html>
+{% endblock %}

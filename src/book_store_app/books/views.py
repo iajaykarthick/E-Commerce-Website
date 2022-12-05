@@ -226,6 +226,7 @@ def get_stores(user_id):
 
 
 def charts(request):
+    user_id = request.session['user_id']
     result = db.get_user_types()
     context={}
     temp1=[]
@@ -259,5 +260,6 @@ def charts(request):
     context['sales']=sales
     context['month']=month
     context['monthly_sales']=monthly_sales
+    context['cart_count'] = db.countCart(user_id)
     print(context)
     return render(request, 'books/charts.html',context)

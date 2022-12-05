@@ -6,6 +6,9 @@ from django.contrib import messages
 import time
 from . import db
 
+# login required
+from book_store_app.decorators import admin_login_required
+
 def redirect_view(request):
     response = redirect('accounts:login')
     return response
@@ -47,8 +50,15 @@ def login_user(request):
         email = request.POST.get('email')
         pwd = request.POST.get('password')
         
-        if db.check_if_user_is_valid(email, pwd):
-            
+        if email == 'admin@bookstore' and pwd == 'admin':
+            user_id = 'admin'
+            request.session['user_id'] = user_id
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('accounts:admin-page')
+        
+        elif db.check_if_user_is_valid(email, pwd):
             user_id = db.get_customer_id(email)
             if user_id != -1:
                 request.session['user_id'] = user_id
@@ -67,3 +77,8 @@ def logout_user(request):
     del request.session['user_id']
     response = redirect('accounts:login')
     return response
+
+
+@admin_login_required
+def admin_page(request):
+    return render(request, 'accounts/admin.html', {})
