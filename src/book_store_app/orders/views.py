@@ -10,13 +10,6 @@ from book_store_app.decorators import my_login_required
 app_name = 'orders'
 
 
-# @my_login_required
-# def confirmation(request):
-#     user_id = request.session['user_id']
-    
-    
-
-
 @my_login_required
 def view_order_receipt(request, payment_id):
     
