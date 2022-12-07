@@ -14,4 +14,4 @@ conda install -c ananconda django
 ```
 
 #### Initial ERD
-![ERD](database/ERD/Book_Store_ERD.jpg)
+![ERD](ERD/ERD/Book_Store_ERD.jpg)
