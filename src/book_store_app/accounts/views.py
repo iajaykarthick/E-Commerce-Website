@@ -6,6 +6,8 @@ from django.contrib import messages
 import time
 from . import db
 
+from books import db as books_db
+
 # login required
 from book_store_app.decorators import admin_login_required
 
@@ -81,4 +83,64 @@ def logout_user(request):
 
 @admin_login_required
 def admin_page(request):
-    return render(request, 'accounts/admin.html', {})
+    result = books_db.get_user_types()
+    context={}
+    temp1=[]
+    temp2=[]
+    titles=[]
+    sold_count=[]
+    dates=[]
+    sales=[]
+    month=[]
+    monthly_sales=[]
+    genre=[]
+    book_count=[]
+    store_id=[]
+    copies_sold=[]
+    for i in result:
+        temp1.append(i[0])
+        temp2.append(i[1])
+    result = books_db.get_top_sold_books()
+    for i in result:
+        titles.append(i[0])
+        sold_count.append(i[1])
+    result=books_db.get_sale_last_5_days()
+    for i in result:
+        dates.append(str(i[0]))
+        sales.append(i[1])
+    result=books_db.monthly_rev()
+    for i in result:
+        month.append(str(i[0]))
+        monthly_sales.append(i[1])
+
+    result=books_db.popular_genre()
+    for i in result:
+        genre.append(i[0])
+        book_count.append(i[1])
+
+
+    result = books_db.store_best_performing()
+    for i in result:
+        store_id.append(i[0])
+        copies_sold.append(i[1])
+
+
+    context['ids']=temp1
+    context['count']=temp2
+    context['titles']=titles
+    context['sold_count']=sold_count
+    context['dates']=dates
+    context['sales']=sales
+    context['month']=month
+    context['monthly_sales']=monthly_sales
+    context['genre']=genre
+    context['book_count']=book_count
+    context['store_id']=store_id
+    context['copies_sold']=copies_sold
+    print(context)
+    return render(request, 'accounts/admin.html', context)
+
+
+
+
+

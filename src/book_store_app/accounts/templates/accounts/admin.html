@@ -1,7 +1,201 @@
-{% extends "base_layout.html" %}
-{% load static %}
+{% extends 'base_layout.html' %} 
 {% block content %}
+<section class="" style="background-color: #eee;">
+    <div class="container py-5">
+                <canvas id="myChart"></canvas>
+                <canvas id="chart2"></canvas>
+                <canvas id="montly_sales"></canvas>
+                <canvas id="last_5_days_sale"></canvas>
+                <canvas id="popular_genre"></canvas>
+                <canvas id="best_performing_store"></canvas>
+            </div>
+        </section>
+            <script> 
 
-<h1> Admin Page </h1>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var labels =['Silver','Gold','Platinum']
+                var count = {{count|safe}}
+                var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                            labels: labels ,       
+                            datasets: [{
+                            label: "Customers in each subscription", 
+                            backgroundColor: ['silver','gold','blue'],          
+                            data: count ,            
+                            }]
+                            
+                       },
+                       options: {
+                                scales: {
+                                    yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                    }]
+                                }
+                                }
+                            
+    
+               } );
+               </script>
+            
+        
+            <script> 
 
-{% endblock %}
+                var ctx = document.getElementById('chart2').getContext('2d');
+                var labels = {{titles|safe}}
+                var copies_sold = {{sold_count|safe}}
+                var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                            labels: labels ,       
+                            datasets: [{
+                            label: 'Copies Sold', 
+                            backgroundColor: ['red','orange','yellow','green','aqua'],          
+                            data: copies_sold ,            
+                            }]
+                            
+                       },
+                       options: {
+                                scales: {
+                                    yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                    }]
+                                }
+                                }
+                            
+    
+               } );
+               </script>
+
+                <script> 
+
+                    var ctx = document.getElementById('last_5_days_sale').getContext('2d');
+                    var labels ={{dates|safe}}
+                    var copies_sold = {{sales|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Total Sales',
+                backgroundColor:'red' ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
+
+                <script> 
+
+                    var ctx = document.getElementById('montly_sales').getContext('2d');
+                    var labels ={{month|safe}}
+                    var copies_sold = {{monthly_sales|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Montly Sales',
+                backgroundColor:'orange' ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
+
+                <script> 
+
+                    var ctx = document.getElementById('popular_genre').getContext('2d');
+                    var labels ={{genre|safe}}
+                    var copies_sold = {{book_count|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Popular Genre',
+                backgroundColor:['red','orange','yellow','green','aqua'] ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
+
+            
+                <script> 
+                    var ctx = document.getElementById('best_performing_store').getContext('2d');
+                    var labels ={{store_id|safe}}
+                    var copies_sold = {{copies_sold|safe}}
+                var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                labels: labels ,       
+                datasets: [{
+                label: 'Best Performing Store ',
+                backgroundColor:['red','orange','yellow','green','aqua'] ,
+                borderColor:'rgb(75, 192, 192)',
+                fill:false,    
+                data: copies_sold ,            
+                }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                        }]
+                    }
+                    }
+
+
+                } );
+                </script>
+{%endblock%}

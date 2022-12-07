@@ -224,8 +224,9 @@ def get_stores(user_id):
     stores = [{'store_id': store['store_id'], 'store': store['Store_Address']} for store in results]
     return stores
 
-
+@my_login_required
 def charts(request):
+    user_id = request.session['user_id']
     result = db.get_user_types()
     context={}
     temp1=[]
@@ -280,5 +281,6 @@ def charts(request):
     context['book_count']=book_count
     context['store_id']=store_id
     context['copies_sold']=copies_sold
+    context['cart_count'] = db.countCart(user_id)
     print(context)
     return render(request, 'books/charts.html',context)

@@ -1,26 +1,16 @@
-{% extends 'base_layout.html' %}
+{% extends 'base_layout.html' %} 
 {% block content %}
 <section class="" style="background-color: #eee;">
     <div class="container py-5">
-                <canvas id="myChart"></canvas>
                 <canvas id="chart2"></canvas>
-                <canvas id="montly_sales"></canvas>
-<<<<<<< HEAD
-                <canvas id="last_5_days_sale"></canvas>  
-    </div>
-</section>
-
-=======
-                <canvas id="last_5_days_sale"></canvas>
                 <canvas id="popular_genre"></canvas>
-                <canvas id="best_performing_store"></canvas>
+            
             </div>
->>>>>>> 77c145cdb3c683e70a965f01fb85d30455af1155
+        </section>
             <script> 
-
-                                var ctx = document.getElementById('myChart').getContext('2d');
-                                var labels =['Silver','Gold','Platinum']
-                                var count = {{count|safe}}
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var labels =['Silver','Gold','Platinum']
+                var count = {{count|safe}}
                 var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
@@ -49,9 +39,9 @@
         
             <script> 
 
-                                var ctx = document.getElementById('chart2').getContext('2d');
-                                var labels = {{titles|safe}}
-                                var copies_sold = {{sold_count|safe}}
+                var ctx = document.getElementById('chart2').getContext('2d');
+                var labels = {{titles|safe}}
+                var copies_sold = {{sold_count|safe}}
                 var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
@@ -140,9 +130,6 @@
 
                 } );
                 </script>
-<<<<<<< HEAD
-{% endblock %}
-=======
 
                 <script> 
 
@@ -178,7 +165,6 @@
 
             
                 <script> 
-
                     var ctx = document.getElementById('best_performing_store').getContext('2d');
                     var labels ={{store_id|safe}}
                     var copies_sold = {{copies_sold|safe}}
@@ -208,6 +194,4 @@
 
                 } );
                 </script>
-        </body>
-</html>
->>>>>>> 77c145cdb3c683e70a965f01fb85d30455af1155
+{%endblock%}

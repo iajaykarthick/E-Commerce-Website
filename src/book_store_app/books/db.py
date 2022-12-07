@@ -1,6 +1,7 @@
 # DB
 from django.db import connection
 from django.db import IntegrityError
+from django.db import OperationalError
 
 def add_to_cart(book_isbn, user_id, quantity):
  
@@ -186,6 +187,10 @@ def increment_cart(user_id, isbn):
             print(user_id, isbn)
             result_args = cursor.callproc('inc_qty', (user_id, isbn))
             print(result_args)
+    
+    except OperationalError as e:
+        print(e)
+        return -1
     
     except IntegrityError as e:
         print("Error occurred")
