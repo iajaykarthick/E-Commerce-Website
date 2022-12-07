@@ -18,8 +18,6 @@ begin
 end $$
 delimiter ;
 
--- call books_with_author('Ajay', 1001);
-
 -- --------------------------------------------- --
 
 ## Stored Procedure 2
@@ -205,16 +203,6 @@ BEGIN
     
 END $$
 delimiter ;
-select * from orders;
--- select * from store_copies where store_id = 1;
-
-CALL checkout(1001, 1, 2, @M);
-
-select * from ORDER_ITEMS;
-
--- SELECT * FROM ORDERS;
-select * from cart;
--- SELECT @M;
  
  -- --------------------------------------------- --
  
@@ -240,7 +228,6 @@ begin
 end $$
 delimiter ;
 
-call inc_qty(1001,'0020199090');
 
 -- --------------------------------------------- --
 
@@ -266,9 +253,6 @@ begin
 end $$
 delimiter ;
 
--- call dec_qty(1,'0002005018');
--- select @val;
--- select * from cart;
 
 -- --------------------------------------------- --
 
@@ -290,18 +274,6 @@ begin
     
 end $$
 delimiter ;
-
--- insert into cart values(1,'0002005018',4);
--- select * from cart;
-
--- call delete_book_cart(1,'0002005018',@val);
--- select @val;
-
--- select * from cart;
-
--- delete from cart 
--- where Customer_ID = 5;
-
 
 
 ## Stored Procedure 12
@@ -344,4 +316,3 @@ begin
 end $$
 delimiter ;
 
--- call store_location(18);

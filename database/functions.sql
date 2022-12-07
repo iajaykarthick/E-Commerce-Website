@@ -44,10 +44,6 @@ begin
 end $$
 delimiter ;
     
--- select login('nikhiln.kudupudi@gmail.com' ,'bik');
-
--- select login('knihiw','hh');
-
 ## Function 3
 ## To get total cart value 
 DROP FUNCTION IF EXISTS cart_total_charge;
@@ -68,15 +64,6 @@ begin
     
 end $$
 delimiter ;
-
--- select cart_total_charge(1);
-
--- select *,cart_total_charge(ID)
--- from customer;
-
--- select * from customer;
-
--- select * from book where ISBN = '0030096189';
 
 
 
@@ -103,7 +90,3 @@ begin
     
 end $$
 delimiter ;
-
-
-select check_copies_present(1, "0020199090", 1);
-select * from book;
